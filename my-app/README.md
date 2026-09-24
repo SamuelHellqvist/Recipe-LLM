@@ -1,11 +1,16 @@
 # ToDoList
-- Fixa WindTailCSS
+- ~~Fixa WindTailCSS~~
 - Kolla upp ESLint och hur vi kan nyttja det 
 
 
 
-
-
+## Starta projektet
+Gå in i <code>/my-app</code> och kör:
+<code>npm install</code>
+Detta laddar ner alla bibliotek som projektet anväder.
+Sedan för att starta projektet så kör du:
+<code>npm run dev</code>
+Med detta så kan du koda/lägga till nya componenter på sidan utan att du behöver starta om projektet.
 
 
 
