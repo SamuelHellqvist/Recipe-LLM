@@ -4,6 +4,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import { getIngredients, getDishes } from "./services/api";
+import RecipeGenerator from './test';
+
+
 
 type Ingredient = {
   nummer: number
@@ -28,6 +31,10 @@ type Dish = Food & {
 function App() {
   const [count, setCount] = useState(0)
   const [dishes, setDishes] = useState<Dish[]>([]);
+
+  
+    
+
 
   useEffect(() => {
     async function loadDishes() {
@@ -80,7 +87,9 @@ function App() {
 
   return (
     <>
-
+  <div>
+      <RecipeGenerator />
+    </div>
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
