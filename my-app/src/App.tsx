@@ -1,14 +1,86 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
+import { getIngredients, getDishes } from "./services/api";
+
+type Ingredient = {
+  nummer: number
+  namn: string | null
+  viktForeTillagning?: number | null
+  viktEfterTillagning?: number | null
+  tillagningsfaktor?: string | null
+}
+
+type Food = {
+  nummer: number
+  namn: string
+  livsmedelsTypId?: number
+  livsmedelsTyp?: string
+}
+
+type Dish = Food & {
+  ingredients: Ingredient[]
+}
+
 
 function App() {
   const [count, setCount] = useState(0)
+  const [dishes, setDishes] = useState<Dish[]>([]);
+
+  useEffect(() => {
+    async function loadDishes() {
+      try {
+
+        const data = await getDishes()
+
+        const dishesWithIngredients: Dish[] = await Promise.all(
+          data.map(async (dish: Food) => {
+
+            const ingredients =
+              await getIngredients(dish.nummer)
+
+            return {
+              ...dish,
+              ingredients
+            }
+          })
+        )
+
+        console.log(
+          "Maträtter + ingredienser:",
+          dishesWithIngredients
+        )
+
+        setDishes(dishesWithIngredients)
+
+      } catch (error) {
+
+        console.error(
+          "Could not fetch dishes:",
+          error
+        )
+      }
+    }
+
+    loadDishes()
+
+  }, [])
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const itemsPerPage = 100
+
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+
+  const currentDishes = dishes.slice(startIndex, endIndex)
+
+  const totalPages = Math.ceil(dishes.length / itemsPerPage)
 
   return (
     <>
+
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
@@ -35,8 +107,64 @@ function App() {
           Hello
         </button>
       </section>
+      <div>
+        <h1>Maträtter</h1>
 
-      <div className="ticks"></div>
+        <p>
+          Totalt: {dishes.length} maträtter
+        </p>
+
+        <p>
+          Sida {currentPage} av {totalPages}
+        </p>
+
+        {currentDishes.map((dish) => (
+          <div key={dish.nummer}>
+            <h2>{dish.namn}</h2>
+
+            <h3>Ingredienser</h3>
+
+            <ul>
+              {dish.ingredients.map((ingredient, index) => (
+               <li key={`${dish.nummer}-${ingredient.nummer}-${index}`}>
+  {ingredient.namn}
+  {ingredient.viktForeTillagning != null
+    ? ` - ${ingredient.viktForeTillagning} g`
+    : " - mängd saknas"}
+</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <div>
+          <button
+            onClick={() =>
+              setCurrentPage((page) => page - 1)
+            }
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
+          <span>
+            {" "}
+            Sida {currentPage} / {totalPages}
+            {" "}
+          </span>
+
+          <button
+            onClick={() =>
+              setCurrentPage((page) => page + 1)
+            }
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      {/* <div className="ticks"></div>
 
       <section id="next-steps">
         <div id="docs">
@@ -59,7 +187,8 @@ function App() {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
+      {/*         
         <div id="social">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
@@ -116,8 +245,8 @@ function App() {
               </a>
             </li>
           </ul>
-        </div>
-      </section>
+        </div> 
+    </section>*/}
 
       <div className="ticks"></div>
       <section id="spacer"></section>
