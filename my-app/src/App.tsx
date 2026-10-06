@@ -4,8 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import { getIngredients, getDishes } from "./services/api";
-import RecipeGenerator from './test';
-
+import RecipeGenerator from './Test';
 
 
 type Ingredient = {

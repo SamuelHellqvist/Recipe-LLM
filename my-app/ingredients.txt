@@ -1,0 +1,1717 @@
+1: Nöt talg
+2: Gris späck
+3: Gris ister
+4: Kokosfett fullhärdat
+5: Matfettsblandning havssaltat fett 80% berikad typ Bregott
+6: Matfettsblandning fett 60% berikad
+10: Flytande margarin fett 82% berikad typ Milda culinesse
+12: Hushållsmargarin fett 80% berikad typ Melba
+13: Hushållsmargarin fett ca 80% berikad typ Milda
+17: Lättmargarin fett 38% berikad typ Becel
+20: Lättmargarin fett 40% berikad typ Lätt & lagom
+24: Gravlaxsås kylvara
+29: Smör fett 80%
+30: Smör extrasaltat fett 80%
+31: Smör osaltat fett ca 80%
+33: Druvkärnolja
+34: Majsolja
+35: Olivolja
+37: Tistelolja
+38: Sesamolja
+39: Sojaolja
+40: Solrosolja
+41: Vetegroddsolja
+42: Dressing konserv. fett ca 25%
+45: Dressing till sallad m. majonnäs fett ca 25% kylvara
+49: Dressing fett 0%
+50: Majonnäs fett 80%
+51: Gurkmajonnäs gurksallad gatukök
+52: Räkmajonnäs räksallad gatukök
+53: Majonnäs lätt fett 30%
+62: Dressing vinägrett fett 65%
+63: Bearnaisesås tillagad frysvara el. pulver
+64: Hollandaisesås tillagad frysvara el. pulver
+66: Mesost fett ca 30%
+68: Messmör fett 5% berikad
+69: Messmör fett 2% berikad
+70: Färskost cottage cheese naturell fett 4%
+71: Färskost cottage cheese m. frukt fett 3%
+72: Färskost cottage cheese m. grönsaker fett 3,5-5%
+73: Färskost m. filmjölk fett ca 8%
+74: Färskost m. filmjölk gräddfil fett ca 14% hemlagad
+75: Kvarg färskost fett 1%
+76: Kvarg färskost fett 10%
+77: Ost hårdost fett 10%
+78: Ost hårdost fett 23%
+79: Ost hårdost fett 26%
+80: Ost hårdost fett 38%
+81: Vitmögelost camembert fett ca 22%
+82: Ädelost blågrön mögelost fett 30%
+83: Mjukost smältost fett 8%
+84: Mjukost smältost fett 10%
+85: Mjukost smältost fett ca 20%
+86: Mjukost smältost fett ca 16%
+87: Mjukost smältost fett 4%
+92: Vitmögelost brie fett ca 38%
+93: Ädelost grönmögelost fett 17%
+94: Salladsost fett 22%
+95: Ost hårdost fett 17%
+96: Ost hårdost fett 28%
+97: Ost hårdost fett 31%
+98: Vitmögelost brie fett 30%
+100: Ost halloumi rå fett 22%
+101: Färskost fett 33%
+102: Ädelost blågrön mögelost fett över 40%
+103: Ost hårdost parmesan fett 30% typ Parmiggiano Reggiano
+104: Färskost m. vitlök fett 35%
+105: Vitmögelost camembert fett 11%
+107: Färskost cream cheese fett 27%
+108: Färskost cream cheese lätt fett 15%
+109: Färskost cream cheese extra light fett 5%
+111: Vitmögelost getost chèvre fett 25%
+113: Bröstmjölk humanmjölk
+114: Filmjölk fett 3% berikad
+115: Kondenserad mjölk konserv. fett ca 8%
+116: Kondenserad mjölk konserv. konc. m. socker fett ca 9%
+118: Mjölkpulver fett 1%
+119: Filmjölk långfil fett 3% berikad
+120: Lättfil fett 0,5% berikad
+122: Milkshake choklad jordgubb
+123: Mjölk fett 3% berikad
+124: Yoghurt naturell fett 3% berikad
+126: Fruktyoghurt lätt fett 0,5% berikad
+127: Mjölk fett 4,2% typ lantmjölk
+128: Filmjölk A-fil fett 3% berikad
+130: Mellanfil fett 1,5% berikad
+133: Mjölkdryck jordgubb fett 1,5% berikad
+135: Yoghurt naturell lätt fett 0,5% berikad
+136: Fruktyoghurt fett 2%
+137: Fruktyoghurt delikatessyoghurt fett 7%
+142: Kefir fett 3% berikad
+147: Yoghurt mild vanilj lätt fett 0,5% berikad
+148: Yoghurt mild vanilj fett 2%
+150: Mellanmjölk fett 1,5% berikad
+151: Lättmjölk fett 0,5% berikad
+152: Vassle flytande
+162: Hårt bröd fullkorn råg fibrer 15,5% typ Husman
+163: Hårt bröd fullkorn råg fibrer ca 18% typ Ryvita mörkt
+164: Hårt bröd fullkorn vete m. vallmofrö fibrer 5,5%
+165: Hårt bröd fullkorn råg fibrer 14,5% typ Vika
+166: Hårt bröd fullkorn råg fibrer 16% typ Finn crisp
+167: Hårt bröd fullkorn råg fibrer ca 15% typ flatbröd
+168: Hårt bröd glutenfritt fibrer ca 7%
+169: Hårt bröd fullkorn råg fibrer ca 13%
+170: Hårt bröd fullkorn råg kli fibrer ca 15%
+171: Hårt bröd fullkorn råg fibrer ca 14% typ rutknäcke
+172: Hårt bröd fullkorn råg fibrer 15,5% typ brungräddat
+173: Hårt bröd fullkorn råg fibrer ca 16% typ sport
+174: Hårt bröd fullkorn råg m. sesamfrö vetekli vetegroddar fibrer 24%
+175: Hårt bröd fullkorn råg fibrer 15,5% typ delikatess
+178: Hårt bröd fullkorn havre vete råg m. mjölk fibrer 8%
+180: Hårt bröd vete m. vallmofrö fibrer 6% typ frukost
+181: Hårt bröd vete m. socker kanel fibrer ca 7%
+182: Hårt bröd glutenfritt fibrer ca 3%
+183: Hårt bröd fullkorn vete havre kli m. socker örtkryddor fibrer 10,5%
+187: Bröd fullkorn råg fibrer ca 10% typ pumpernickel
+188: Ströbröd malt hårt bröd fullkorn vete råg socker fibrer ca 5%
+190: Hårt bröd fullkorn råg fibrer ca 14% typ normalgräddat
+191: Hårt bröd fullkorn råg vete majs m. surdeg fibrer 15% typ spisbröd
+193: Bröd vitt vete vatten fibrer ca 3,5% typ pitabröd
+194: Korvbröd
+195: Hårt bröd fullkorn råg fibrer ca 14% typ brungräddat
+198: Bröd vitt osötat fibrer ca 2,5% typ italienskt
+200: Bröd vitt vete fibrer ca 2,5% typ baguette
+201: Bröd vitt fullkorn surdeg fibrer 4,4% bakad i butik typ grov baguette
+202: Bröd vitt fibrer 3,5%
+204: Bröd vitt mjölk fibrer ca 3% typ Hönökaka
+207: Bröd fullkorn rågsikt fibrer ca 7% typ kavring
+208: Bröd osötat rågsikt fibrer ca 3,5%
+209: Bröd rågsikt fibrer ca 4%
+210: Bröd fullkorn graham m. mjölk fibrer ca 5%
+213: Bröd fullkorn råg typ rallarhalvor
+214: Bröd fullkorn råg osötat fibrer ca 5%
+216: Hårt bröd tunnbröd fullkorn vete råg korn havre
+217: Bröd vitt mjukt m. mjölk fibrer ca 4% typ tunnbröd
+219: Bröd fullkorn råg m. potatis fibrer ca 5% 
+222: Bröd vitt vatten fibrer ca 3% typ ostfralla
+224: Riskaka fullkorn solrosfrön majs fett 4% 
+225: Riskaka fullkorn smaksatt fett 18% 
+226: Bröd vitt glutenfritt
+227: Bröd mörkt glutenfritt
+230: Potatis höst rå
+231: Potatis höst kokt m. salt
+233: Potatis m. skal bakad u. salt
+234: Potatis m. skal bakad u. salt i aluminiumfolie 
+235: Potatis tärnad frysvara
+236: Färskpotatis kokt u. salt
+237: Potatis konserv. u. lag
+238: Klyftpotatis u. skal ugnsstekt m. rapsolja
+244: Pommes frites friterad potatis värmd i ugn fett ca 7% frysvara
+245: Pommes frites friterad potatis fett ca 11% frysvara
+246: Pommes frites friterad potatis fett ca 17% tillagad på restaurang
+248: Kroppkakor el. potatispalt m. fläsk
+250: Sjömansbiff hemlagad
+254: Bakad potatis m. kycklingcurryröra sallad
+255: Pytt i panna tillagad frysvara
+256: Sjömansbiff frysvara
+260: Bakad potatis m. skagenröra sallad
+266: Potatispalt
+268: Potatis råstuvad hemlagad
+270: Potatisgratäng m. mjölk kaffegrädde ost hemlagad
+271: Raggmunk potatisplätt potatispannkaka hemlagad
+280: Bakad potatis m. färskoströra paprika veg.
+281: Schweizisk potatiskaka rösti värmd frysvara
+282: Potatiskrokett värmd frysvara
+284: Potatisgratäng m. grädde ost värmd frysvara
+286: Grönsaksblandning m. morot palsternacka purjolök rotselleri frysvara
+287: Jordärtskocka
+288: Kålrot
+289: Morot
+290: Palsternacka
+291: Pepparrot
+292: Rotselleri
+293: Rädisa
+294: Rödbeta
+295: Rättika
+296: Rotpersilja
+297: Majrova
+298: Svartrot
+299: Morot konserv. m. lag
+300: Morot konserv. u. lag
+301: Morotsjuice
+302: Rotmos hemlagad
+319: Rödbeta inlagd u. lag
+320: Avokado
+321: Stjälkselleri
+322: Blomkål
+323: Blomkål frysvara
+324: Bondbönor färska kokta u. salt
+325: Broccoli
+326: Broccoli frysvara
+327: Brysselkål
+328: Brysselkål frysvara
+329: Mungbönsgroddar
+330: Sojabönsgroddar
+331: Gröna bönor
+332: Gröna bönor frysvara
+333: Champinjon
+334: Friséesallat
+335: Endivesallat
+336: Fänkål
+337: Grönkål
+338: Grönkål frysvara
+339: Gurka
+340: Isbergssallat
+342: Kronärtskocka
+343: Kålrabbi
+344: Lök gul
+345: Majskolv
+346: Majskolv frysvara
+347: Majskorn frysvara
+348: Mangold
+349: Nässlor förvällda
+350: Paprika grön
+351: Paprika röd
+352: Persilja blad
+353: Pumpa
+354: Purjolök
+355: Rödkål
+357: Savojkål
+358: Salladskål
+359: Sockerärtor
+361: Spenat frysvara
+362: Squash
+364: Tomat
+365: Tomat torkad m. olja
+366: Trädgårdskrasse
+367: Vattenkrasse
+368: Vaxbönor
+369: Vaxbönor frysvara
+370: Vitkål
+371: Vitlök
+372: Aubergine
+374: Gröna ärtor frysvara
+376: Alfalfagroddar
+377: Dill färsk
+378: Gräslök
+379: Basilika färsk
+380: Chilipeppar färsk
+381: Paprika gul
+382: Paprika grön röd frysvara
+383: Champinjon skivad frysvara
+384: Linsgroddar
+385: Lök gul frysvara
+386: Grönsaksblandning m. ärtor bönor majs morot typ amerikansk frysvara
+387: Grönsaksblandning m. ärtor bönor morot blomkål typ sommargrönsaker frysvara
+388: Grönsaksblandning m. ärtor morot frysvara
+389: Grönsaksblandning m. ärtor majs paprika frysvara
+393: Bambuskott konserv. u. lag
+395: Gröna bönor konserv. u. lag
+397: Champinjon konserv. m. lag
+400: Majskorn konserv. u. lag
+401: Oliver gröna m. paprikafyllning avrunna
+402: Oliver svarta m. olja avrunna
+403: Grönsaksblandning el. pickels sockrad inlagd u. lag
+404: Sparris vit konserv. u. lag
+405: Sparrissoppa tillagad redd konserv. veg.
+406: Surkål konserv. m. lag
+407: Tomat hel konserv. m. lag
+408: Tomatjuice konserv. drickf.
+410: Tomatpuré konc. konserv.
+411: Vaxbönor konserv. u. lag
+412: Gröna ärtor konserv. m. lag
+413: Gröna ärtor konserv. u. lag
+414: Mungbönsgroddar konserv. u. lag
+415: Sojabönsgroddar konserv. u. lag
+416: Paprikasallad inlagd u. lag
+417: Ajvar relish
+418: Svamp konserv. u. lag
+419: Kantarell konserv. u. lag
+420: Syltlök inlagd
+421: Tomater gröna syltade
+422: Tomat krossad konserv. m. lag
+423: Fefferoni konserv. inlagd
+424: Wokgrönsaker Asiatiska wokade m. rapsolja
+425: Wokgrönsaker Classic wokade m. rapsolja
+426: Grönsaksblandning ärtor morot konserv. m. lag
+427: Grönsaksjuice konserv. el. pastöriserad drickf.
+428: Champinjon konserv. u. lag
+429: Pumpasallad m. paprika inlagd sockrad u. lag
+430: Grönsakssoppa klar veg. 
+431: Spenatsoppa veg. hemlagad
+432: Vitkål stuvad hemlagad
+480: Grönsakssoppa m. pasta tillagad pulver
+481: Löksoppa fransk tillagad pulver m. vatten
+482: Grönsakssoppa tillagad klar konserv.
+484: Grönsakssoppa tillagad redd pulver m. vatten mjölk
+486: Grönsakssoppa tillagad redd pulver
+487: Gurka inlagd
+488: Bostongurka
+489: Gurka fermenterad u. lag
+490: Saltgurka u. lag
+491: Ättiksgurka u. lag
+492: Kronärtskocka kokt
+493: Champinjonsoppa tillagad pulver m. vatten mjölk
+494: Champinjonsoppa tillagad redd m. mjölk konserv.
+495: Majskolv kokt
+496: Blomkålssoppa tillagad pulver m. vatten mjölk
+497: Tomatsoppa tillagad pulver m. vatten
+498: Tomatsoppa tillagad konserv. m. vatten mjölk
+499: Sparrissoppa tillagad pulver m. vatten mjölk veg.
+500: Rödkål konserv.
+501: Champinjonsås tillagad pulver m. mjölk smör
+502: Grönsaker blandade fermenterade
+503: Grönsaksjuice fermenterad
+504: Kåldolmar råa u. sås frysvara
+505: Vitkålssoppa m. fläskkorv hemlagad
+518: Wokgrönsaker m. nudlar kyckling
+519: Kycklingsallad m. ananas paprika vitlöksdressing
+520: Granatäpple
+521: Grapefrukt
+522: Guava
+523: Hallon
+524: Hallon m. socker frysvara
+525: Hjortron
+526: Jordgubbar
+527: Jordgubbar hela m. socker frysvara
+528: Gratäng broccoligratäng veg. 
+532: Grekisk sallad m. fetaost
+535: Grönsaksbuljong pasta el. pulver storhushåll
+537: Agar torkad
+538: Mykoprotein färs bitar filé kylvara el. frysvara
+543: Wokgrönsaker m. nudlar veg.
+544: Pastej veg.
+545: Grönsaksbuljong ätf.
+546: Honungsmelon
+547: Nätmelon
+548: Rabarber tillagad u. socker
+549: Vattenmelon
+550: Ananas
+551: Apelsin
+552: Aprikos
+553: Banan
+554: Björnbär
+555: Blåbär
+556: Blåbär frysvara
+557: Blåbär m. socker frysvara
+558: Cherimoya
+559: Citron
+560: Småcitrus clementin mandarin tangerin satsumas
+561: Fikon
+562: Fläderbär
+563: Jordgubbar skivade m. socker frysvara
+564: Kaktusfikon
+565: Kiwi grön
+566: Krusbär
+567: Physalis
+568: Kumquat
+569: Kvitten
+570: Surkörsbär
+571: Sötkörsbär
+572: Lime
+573: Lingon
+574: Mango
+575: Banan kokbanan
+576: Nektarin
+577: Papaya
+578: Paradisäpple
+579: Passionsfrukt
+580: Persika
+581: Sharon
+582: Plommon
+583: Päron
+584: Tranbär
+585: Vinbär röda
+586: Vinbär svarta
+587: Vindruvor
+588: Äpple m. skal
+589: Äpple u. skal 
+590: Hallon frysvara
+591: Björnbär frysvara
+592: Björnbär m. socker frysvara
+593: Jordgubbar frysvara
+598: Apelsinskal
+599: Aprikos torkad
+600: Banan torkad
+601: Blåbär torkade
+602: Citronskal
+603: Dadlar torkade
+604: Fikon torkade
+605: Katrinplommon torkade
+606: Nypon torkat u. frön
+607: Nyponsoppapulver berikad
+608: Persika torkad
+609: Päron torkade
+610: Russin
+611: Äpple torkat
+612: Frukt torkad
+613: Papaya torkad
+614: Ananas konserv. m. juice
+617: Ananas konserv. m. sockerlag
+618: Aprikos konserv. m. juice
+619: Aprikos konserv. m. sockerlag
+624: Körsbär surkörsbär konserv. m. sockerlag
+625: Persika konserv. m. sockerlag
+626: Plommon konserv. m. sockerlag
+627: Päron konserv. m. lättsockrad lag
+628: Päron konserv. m. sockerlag
+629: Äpple konserv.
+630: Grapefrukt konserv. m. lättsockrad lag
+632: Fruktcocktail konserv. m. sockerlag
+633: Mandarin konserv. m. lättsockrad lag
+634: Mango konserv. m. sockerlag
+637: Frukt bär konserv. osötad el. sötningsm.
+641: Apelsinjuice färskpressad
+642: Apelsinjuice konc. frysvara
+643: Apelsinjuice drickf.
+645: Citronjuice färskpressad
+646: Citronjuice konc. konserv.
+647: Småcitrusjuice färskpressad
+649: Grapefruktjuice färskpressad
+652: Limejuice färskpressad
+657: Limejuice konc. konserv.
+658: Druvjuice konserv. drickf.
+659: Äppeljuice drickf.
+660: Ananasjuice konserv. drickf.
+661: Apelsinjuice pastöriserad drickf.
+664: Aprikosnektar pastöriserad drickf.
+665: Persikonektar pastöriserad drickf.
+670: Katrinplommondryck konserv. drickf.
+672: Havredryck choklad fett 1,5%  berikad
+679: Frukostflingor ris puffat rostat osötat
+680: Rågkross ångprep. fullkorn
+694: Välling fullkorn berikad
+699: Välling berikad
+700: Havredryck fett 1,5% berikad
+702: Havregryn fullkorn
+703: Fiberhavregryn fullkorn havre m. vetekli
+704: Havrekli
+705: Korngryn ångprep. fullkorn
+706: Frukostflingor majs osötad berikad typ cornflakes
+707: Vetekross ångprep. fullkorn
+708: Vetegroddar
+709: Vetekli
+710: Frukostflingor vete fullkorn typ Weetabix
+711: Kruskakli grovt vetekli
+712: Frukostflingor flingblandning fullkorn typ basmüsli
+713: Frukostflingor ris puffat m. socker berikad
+714: Frukostflingor vetekli rostat m. kornmalt
+716: Frukostflingor ris puffat rostat m. socker kakao
+719: Frukostflingor müsli fullkorn m. frukt bär
+721: Frukostflingor müsli flingblandning fullkorn m. frukt nötter socker el. honung
+724: Frukostflingor vetekli fullkorn berikad
+725: Frukostflingor fullkorn typ Specialflingor
+726: Frukostflingor vete puffat m. honung berikad
+727: Frukostflingor majs m. socker
+728: Frukostflingor fullkorn m. socker berikad typ ringar
+740: Räkcrêpe m. mellanmjölk vispgrädde fyllning 44% hemlagad
+741: Räkcrêpe värmd fyllning 37% frysvara
+742: Champinjoncrêpe m. mellanmjölk vispgrädde veg. hemlagad
+743: Baguette m. salami brieost soltorkad tomat sallad
+744: Ciabatta m. mozzarella soltorkad tomat sallad
+745: Bagel m. rökt lax färskost sallad
+746: Champinjoncrêpe värmd veg. frysvara
+750: Vårrulle värmd frysvara
+751: Vårrulle värmd tillagad på restaurang
+760: Paj m. köttfärs värmd frysvara
+761: Pirog m. kött värmd frysvara
+762: Pizza Capricciosa m. rökt skinka värmd kylvara el. frysvara
+763: Pizza Capricciosa m. rökt skinka champinjon restaurang
+764: Pizza Pepperoni m. rökt korv värmd frysvara
+765: Pizza pan pizza m. rökt griskött värmd frysvara
+766: Pizza pan pizza m. rökt griskött restaurang
+767: Paj m. ost skinka värmd frysvara
+771: Paj m. skaldjur värmd frysvara
+772: Pizza Marinara m. skaldjur restaurang
+775: Kycklingburgare m. bröd tillbehör
+776: Fiskburgare m. bröd tillbehör
+777: Baguette m. rostbiff potatissallad sallad
+778: Baguette grov m. skaldjur tonfisk smögenröra sallad
+779: Baguette grov m. ost skinka sallad lättmajonnäs
+780: Bagel m. salami färskost sallad oliv
+781: Sandwich m. räkor ägg sallad majonnäs
+782: Sandwich m. rökt kalkon färskost soltorkad tomat sallad
+783: Sandwich m. salami färskost sallad
+784: Tunnbrödsrulle m. pastrami potatis sallad majonnäs
+785: Wrap vetetortilla m. ris köttfärs majs ost
+786: Wrap vetetortilla fajitas m. kyckling gräddfil sallad
+787: Wrap vetetortilla enchilada m. köttfärs majschips ost sallad paprika tomat tomatsås
+788: Falafel m. pitabröd sallad sesamsås pepperoni
+789: Paj m. ost skinka mellanmjölk matlagningsgrädde hemlagad
+792: Wrap vetetortilla m. fetaost oliver sallad vitlöksdressing
+793: Matmuffins grov fullkorn m. getost fårost broccoli spenat soltorkade tomater
+804: Ris råris kokt m. salt
+810: Rismjöl vitt
+811: Risdiet flingor
+814: Ris kinesiskt asiatiskt kokt u. salt tillagad på restaurang
+817: Ris vildris okokt
+818: Ris vildris kokt m. salt
+819: Nudlar glasnudlar okokta
+824: Vinbladsdolma m. ris konserv. veg.
+825: Bovete hela el. krossade korn
+826: Durra el. andra sorghumarter mjöl fullkorn
+827: Hirs hela el. krossade korn fullkorn
+828: Mannagryn
+829: Bulgur
+830: Bulgur kokt
+831: Couscous
+832: Couscous tillagad
+833: Korngryn ångprep. fullkorn kokt m. salt
+840: Rismål fett 6%
+841: Rismål lätt fett 1,5%
+844: Nudelsoppa m. risnudlar curry sesamolja
+845: Pasta okokt
+846: Pasta kokt u. salt
+848: Pasta fullkorn okokt
+852: Pasta färsk m. ägg kokt u. salt
+861: Ravioli m. sås värmd frysvara el. konserv.
+862: Tortellini m. kött kokt
+869: Lasagne värmd frysvara
+870: Nudlar äggnudlar okokta
+872: Tortellini m. ostfyllning kokt
+873: Nudelsoppa olika smaker kryddad
+874: Bondbönor torkade
+875: Bruna bönor torkade
+877: Kidney bönor torkade
+878: Röda bönor torkade kokta u. salt
+879: Vita bönor torkade
+880: Vita bönor torkade kokta u. salt
+881: Kikärtor torkade
+883: Mungbönor torkade kokta u. salt
+884: Linser torkade
+886: Mungbönor torkade
+887: Sojabönor torkade
+888: Sojabönor torkade kokta u. salt
+889: Vignabönor svartögda bönor torkade
+890: Vignabönor svartögda bönor torkade kokta u. salt
+891: Gröna el. gula ärtor torkade
+897: Ärtsoppa m. fläsk hemlagad
+900: Ärtsoppa fläsk tillagad konserv. m. vatten
+901: Vita bönor m. tomatsås konserv.
+905: Tofu fast
+906: Sojamjöl fett ca 20%
+907: Sojadryck
+908: Miso sojabönspasta fermenterad
+909: Sojasås
+910: Sojasås söt
+911: Korv veg. sojakorv konserv. fett 15%
+912: Glass sojaglass mjölkfri fett 11%
+920: Lamm bog rå
+921: Lamm kotlett rå
+922: Lamm lägg rå
+923: Lamm rygg el. hals rå
+924: Lamm stek rå
+925: Lamm färs rå fett 20%
+926: Lamm tunnbringa rå
+927: Lamm kotlett rå fett bortskuret
+928: Hare kött rå
+930: Hjort dovhjort bog rå
+931: Hjort dovhjort stek rå
+932: Hjort ryggbiff rå
+933: Häst kött rå
+934: Kalv bog rå
+935: Kalv bringa rå
+936: Kalv filé rå
+937: Kalv fransyska rå
+938: Kalv innanlår rå
+939: Kalv kotlett rå
+940: Kalv lägg rå
+941: Kalv ytterlår rå
+942: Kalv tunnbringa rå
+943: Kalv högrev rå
+944: Kanin kött rå
+945: Nöt clubstek biff rå m. ben
+946: Nöt ryggbiff rå
+947: Nöt oxbringa rå
+948: Nöt oxbringa rimmad rå
+949: Nöt oxfilé rå
+950: Nöt fransyska rå
+951: Nöt färs rå fett 10%
+953: Nöt högrev rå fett bortskuret
+954: Nöt innanlår rå
+955: Nöt lägg rå
+956: Nöt bog el. märgpipa rå
+957: Nöt rostbiff rå
+958: Nöt rulle rimmad rå
+959: Nöt ytterlår rå
+960: Nöt entrecôte rå
+961: Nöt grytbitar rå
+962: Nöt kött hackebiff rå frysvara
+963: Nöt färs rå fett 15%
+965: Ren stek rå
+966: Ren bog rå
+967: Ren skav rå frysvara
+968: Rådjur kött rå
+969: Gris bog rå
+970: Gris fläskfilé rå
+971: Gris fläskkotlett rå fettkant 5 mm
+972: Gris revbensspjäll rå
+973: Gris fötter rå
+974: Gris skinka julskinka rimmad rå fett ca 3%
+975: Gris fläskben rå
+976: Gris picnicbog rå
+977: Gris grytbitar rå
+978: Gris fläskkarré rå
+980: Gris färs rå fett 20%
+981: Gris bogbladsstek rå
+982: Gris fläskkotlett rå fett bortskuret
+983: Gris fläskkotlett rå fettkant 2 mm
+984: Gris lägg putsad rå u. svål
+985: Gris sidfläsk bit rå m. svål
+986: Gris stekfläsk sida skiva rå m. svål
+987: Gris flintastek rå m. svål
+988: Gris skinka innanlår rå
+989: Gris skinka fransyska rå
+990: Gris skinka ytterlår rå
+991: Gris sidfläsk el. stekfläsk skivor rimmat rå
+992: Gris färs rå fett 8%
+995: Älg skav rå frysvara
+996: Nöt oxsvans rå fett bortskuret
+997: Gris svål rå
+998: Häst hamburgerkött rökt
+999: Nöt saltkött rimmat kokt
+1000: Nöt kött rökt
+1001: Ren stek varmrökt
+1002: Ren kött torkat
+1003: Gris bacon rå
+1004: Gris bacon stekt
+1005: Gris bog konserv. gelé 6-8%
+1006: Gris kassler kotlettrad rökt
+1008: Gris skinka lufttorkad italiensk
+1009: Gris skinka rökt fett 6%
+1010: Gris skinka skivad rökt fett 1-3%
+1011: Gris sidfläsk rökt
+1012: Nöt kött konserv.
+1013: Nöt flankstek rå
+1055: Gris fläskkarré tillagad u. sky
+1056: Gris skinkstek stekt u. sky frysvara
+1057: Nöt stek stekt u. sky frysvara
+1058: Nöt rostbiff tillagad ugnsrostad u. salt
+1059: Gris revbensspjäll tillagad u. sky
+1060: Gryta dillkött nöt m. sås
+1087: Biff stroganoff nöt frysvara
+1088: Gryta dillkött nöt m. sås frysvara
+1089: Kinesisk rätt gris friterat m. grönsaker
+1090: Gryta chop suey fläskfilé tillagad på restaurang
+1091: Nasi Goreng gris tillagad på restaurang
+1094: Frikassé kalv frysvara
+1095: Gryta kalops nöt frysvara
+1096: Köttsoppa nöt tillagad konserv. m. vatten
+1099: Kycklingburgare rå fett ca 7% frysvara
+1100: Köttbullar kyckling stekta fett 12% frysvara
+1101: Hamburgare nöt rå frysvara
+1102: Köttbullar frysvara
+1103: Pannbiff rå frysvara
+1104: Burgare veg. soja- och veteprotein tillagad
+1105: Biff à la Lindström stekt hemlagad
+1106: Köttbullar blandfärs stekta hemlagade
+1107: Köttfärslimpa ugnsstekt hemlagad
+1108: Köttfärssås i gjutjärn hemlagad
+1136: Biff à la Lindström stekt frysvara
+1137: Gryta biff m. bambuskott tillagad på restaurang
+1138: Hamburgare nöt stekt frysvara
+1142: Kålpudding m. vitkål köttfärs
+1145: Köttfärssås frysvara el. konserv.
+1146: Kåldolmar stekta u. sås frysvara
+1147: Kåldolmar stekta värmda m. sås frysvara
+1148: Köttbullar stekta m. sås frysvara
+1149: Pannbiff stekt frysvara
+1151: Anka bröst rå
+1153: Anka rå m. skinn
+1154: Duva rå
+1155: Duva rå m. skinn
+1156: Fasan rå
+1157: Fasan rå m. skinn
+1158: Gås rå
+1159: Gås rå m. skinn
+1160: Höna rå
+1161: Höna rå m. skinn
+1162: Kalkon filé rå
+1163: Kalkon rå m. skinn
+1164: Kyckling kött rå u. skinn
+1165: Kyckling kött rå m. skinn
+1166: Kyckling bröstfilé rå m. skinn
+1167: Kyckling lår rå m. skinn
+1168: Kyckling vinge rå m. skinn
+1169: Ripa rå
+1170: Kyckling bröstfilé färsk stekt u. skinn
+1171: Kyckling ben rå m. skinn
+1172: Kyckling bröstfilé strimlad wokad u. skinn m. rapsolja
+1173: Kyckling bröstfilé rå u. skinn
+1174: Kyckling lår rå u. skinn
+1175: Kyckling delar marinerade m. skinn
+1176: Struts filé rå
+1177: Struts filé stekt
+1178: Kalkon kokt
+1191: Kalkon rökt
+1192: Kyckling marinerad grillad m. skinn
+1193: Kyckling friterad m. frityrsmet
+1200: Braxen rå
+1201: Regnbågslax rå
+1202: Sej rå
+1203: Hälleflundra vild rå
+1207: Kyckling nugget friterad tillagad på restaurang
+1208: Kycklingsoppa tillagad redd pulver m. vatten mjölk
+1209: Kycklingsoppa tillagad redd pulver m. vatten
+1210: Kalvbuljong pasta el. pulver storhushåll
+1211: Kalvbuljong pasta el. pulver lågsalt storhushåll
+1212: Köttbuljong pasta el. pulver storhushåll
+1213: Köttbuljong pasta el. pulver lågsalt storhushåll
+1214: Skinkbuljong pasta el. pulver storhushåll
+1215: Hönsbuljong pasta el. pulver lågsalt storhushåll
+1216: Hönsbuljong pasta el. pulver storhushåll
+1217: Köttbuljong pulver tärning
+1218: Köttbuljong konserv. ätf.
+1219: Gelatinblad el. gelatinpulver
+1223: Köttbuljong ätf.
+1224: Hönsbuljong ätf.
+1225: Ägg rått
+1226: Äggula rå
+1227: Äggvita rå
+1237: Kolja rå
+1238: Kummel rå
+1240: Siklöja rå
+1241: Sill rå
+1242: Flundra rå
+1243: Strömming rå
+1244: Röding rå
+1246: Torsk rå
+1247: Vitling rå
+1248: Ål rå
+1249: Öring odlad rå
+1250: Pinklax rå
+1251: Piggvar rå
+1252: Sik urtagen varmrökt
+1253: Abborre rå
+1255: Lax odlad Norge fjordlax rå
+1256: Öring Sverige rå
+1257: Lake rå
+1258: Rödspätta rå
+1259: Sik rå
+1260: Makrill rå
+1261: Regnbågslax odlad rå
+1262: Gädda rå
+1263: Gös rå
+1265: Ansjovis skarpsill konserv. 
+1266: Böckling varmrökt
+1267: Fisk torkad
+1269: Lax kallrökt
+1270: Sardeller konserv.
+1271: Sardiner i olja konserv.
+1272: Sardiner i tomatsås konserv.
+1273: Saltsill rå
+1274: Saltströmming rå
+1275: Tonfisk i olja konserv. avrunnen
+1277: Ål varmrökt rundrökt
+1278: Tonfisk i vatten konserv. avrunnen
+1279: Makrill urtagen varmrökt
+1280: Lutfisk rå frysvara
+1281: Sill matjessill konserv.
+1282: Marulk rå
+1283: Makrill filé i olja konserv.
+1284: Saltsill urvattnad konserv.
+1285: Lax gravad
+1286: Lax rimmad
+1287: Böckling dubbelfilé varmrökt
+1288: Lax varmrökt urtagen
+1289: Makrill filé varmrökt
+1290: Regnbågslax kallrökt
+1291: Regnbågslax urtagen varmrökt
+1292: Röding urtagen varmrökt
+1293: Ål varmrökt flatrökt
+1294: Fiskpinnar stekta
+1296: Makrill filé i tomatsås konserv.
+1297: Surströmming
+1298: Lutfisk kokt
+1299: Saltsill panerad stekt hemlagad
+1300: Strömmingsflundra panerad stekt hemlagad
+1301: Torsk filé panerad stekt hemlagad
+1302: Ål inkokt hemlagad
+1303: Ål ugnsstekt hemlagad
+1344: Fiskbullar konserv. u. buljong
+1345: Fiskbullar m. hummersås konserv. tillagad
+1346: Laxpastej lättrökt
+1347: Böcklingpastej
+1348: Fiskpudding m. ris hemlagad
+1349: Fiskgratäng u. potatismos hemlagad
+1371: Fisk m. mandel ströbröd frysvara
+1372: Fiskgratäng m. potatismos dillsås tillagad frysvara
+1373: Laxpaté
+1374: Fiskgratäng m. potatismos räksås tillagad frysvara
+1376: Fiskrom torsk sill rå
+1377: Påläggskaviar orökt
+1378: Påläggskaviar original
+1379: Påläggskaviar lätt
+1381: Stenbitsrom
+1382: Löjrom saltad
+1384: Bläckfisk rå
+1385: Blåmussla kokt m. vin avrunnen
+1386: Ostron
+1387: Snigel vinbergssnäcka
+1388: Groda lår rått frysvara
+1389: Mussla konserv. m. lag
+1390: Mussla konserv. u. lag
+1391: Ostron konserv. m. lag
+1392: Krabba Blå krabba kokt
+1393: Hummer kokt
+1394: Kräfta kokt
+1395: Räka kokt
+1396: Hummer kokt el. konserv.
+1397: Krabba kokt
+1398: Krabba konserv.
+1399: Räka konserv. m. lag
+1400: Räka konserv. u. lag
+1403: Havskräfta kokt
+1404: Räka friterad
+1406: Räka friterad tillagad på restaurang
+1407: Bläckfisk friterad panerad
+1408: Bläckfisk friterad panerad tillagad på restaurang
+1416: Medelhavssallad m. tonfisk skaldjur majonnäsdressing sallad tomat
+1417: Skaldjurspaté
+1418: Räksoppa tillagad pulver m. vatten mjölk
+1419: Fiskbuljong pasta el. pulver storhushåll
+1420: Fiskbuljong pasta el. pulver lågsalt storhushåll
+1421: Fisk och skaldjurssås tillagad pulver m. mjölk vatten smör typ Smögen
+1422: Fiskbuljong ätf.
+1423: Gris blod rått
+1424: Nöt blod rått
+1425: Hårt bröd blodbröd fullkorn
+1426: Blodpudding blodkorv fett 19%
+1427: Blodpalt
+1428: Blodpudding blodkorv fett 14%
+1429: Blodbröd paltbröd frysvara
+1430: Blodpudding blodkorv fett 10%
+1434: Lamm bräss rå
+1435: Lamm hjärta rå
+1436: Lamm lever rå
+1437: Lamm njure rå
+1438: Lamm tunga rå
+1439: Kalv bräss rå
+1441: Kalv lever rå
+1442: Kalv njure rå
+1443: Kalv tunga rå
+1444: Nöt kalv hjärta
+1445: Nöt lever rå
+1446: Nöt njure rå
+1447: Nöt oxtunga rå
+1448: Gris hjärta rå
+1449: Gris lever rå
+1450: Gris njure rå
+1451: Gris tunga rå
+1452: Kyckling hjärta rå
+1453: Kyckling lever rå
+1454: Kyckling mage rå
+1455: Ren lever rå
+1456: Nöt oxtunga rimmad rå
+1460: Nöt oxtunga rimmad kokt
+1461: Lever stuvad hemlagad
+1467: Leverbiff mald lever stekt frysvara
+1468: Gryta levergryta m. grönsaker frysvara
+1470: Gåsleverpastej konserv. rökt
+1471: Leverpalt
+1472: Njurpalt
+1473: Leverbiff mald lever rå frysvara
+1474: Leverpastej bredbar fett ca 24%
+1475: Leverpastej skivbar fett ca 22% 
+1476: Leverpastej skivbar fett 14%
+1477: Leverpastej bredbar fett ca 10%
+1478: Leverpastej bredbar fett 3-3,5%
+1479: Leverbiff mald lever stekt hemlagad
+1482: Lantpaté
+1483: Grönpepparpaté
+1485: Korv kycklingkorv mager
+1486: Korv kycklingkorv halal
+1487: Korv falukorv fett 19% kött 58%
+1488: Korv falukorv kött 58%
+1491: Korv fläskkorv kokt kött 48%
+1492: Korv frukostkorv fett 23% kött 52%
+1496: Påläggskorv medvurst fett 23%
+1497: Påläggskorv medvurst rökt fett 35%
+1498: Påläggskorv salami rökt
+1500: Korv varmkorv kött 51-54%
+1501: Korv varmkorv kokt kött ca 53%
+1503: Korv wienerkorv kött 73%
+1508: Korv grillkorv kött 32-35%
+1509: Korv isterband fermenterad kött 59%
+1511: Korv middagskorv fett ca 15%  kött 52%
+1512: Korv wienerkorv mager kött 73%
+1513: Korv chorizo stekt kött 73%
+1514: Korv kabanoss stekt kött 80%
+1516: Korv prinskorv kött 61%
+1518: Korv salsiccia rå kött 73%
+1519: Korv salsiccia stekt u. fett kött 73%
+1521: Korv värmlandskorv rå kött 45%
+1522: Korv värmlandskorv kokt kött 45%
+1524: Gris bacon rå mager
+1543: Pölsa
+1544: Korv stroganoff hemlagad i gjutjärnsstekpanna
+1553: Kalvsylta
+1554: Pressylta
+1555: Hushållssylta
+1557: Cashewnötter rostade u. salt
+1558: Hasselnötter
+1559: Jordnötssmör
+1560: Jordnötter torkade
+1561: Jordnötter rostade
+1562: Jordnötter rostade saltade
+1563: Kastanjer
+1564: Kokosflingor
+1565: Kokosnöt
+1566: Kokosmjölk fett ca 6%
+1567: Linfrö hela
+1568: Paranötter
+1569: Pekannötter
+1570: Pistaschnötter u. salt
+1571: Pumpafrö
+1572: Sesamfrö m. skal
+1573: Sesamfrö u. skal
+1574: Solrosfrö
+1575: Sötmandel
+1576: Valnötter
+1577: Kastanjer rostade
+1579: Kikärtor snacks torkade m. salt
+1580: Jordnötsbågar jordnötsringar
+1581: Chips majs tortilla 
+1582: Ostbågar
+1584: Chips potatis m. havssalt
+1585: Salta pinnar
+1586: Popcorn mikropopcorn poppade fett ca 22%
+1587: Chips potatis smaksatta fett ca 33%
+1588: Chips potatis light fett 25%
+1589: Japanmix blandade snacks m. inbakade nötter riscracker
+1590: Kokosmjölk fett ca 24%
+1591: Vatten kokosvatten
+1592: Sesamdryck vattenextrakt av frön m. skal
+1593: Sesamdryck vattenextrakt av frön u. skal
+1595: Skorpor råg
+1597: Skorpor vete osötade
+1598: Sött vetebröd
+1599: Sött vetebröd slätt
+1600: Sött vetebröd sötat m. fruktsocker
+1601: Vetebröd osötat
+1602: Sött vetebröd m. fyllning bulle längd
+1603: Skorpor vete
+1604: Skorpor fullkorn osötade
+1605: Mandelkubb
+1606: Munk u. fyllning
+1607: Munk fylld m. äppelmos vaniljkräm
+1608: Wienerbröd m. vaniljkräm sylt florsocker
+1611: Kex cream crackers
+1612: Kex rån m. cremefyllning smaksatt
+1613: Kex havrekex fullkorn
+1614: Kex Mariekex
+1615: Kex mördegskex
+1616: Kex m. syltfyllning
+1617: Kex m. nougatfyllning
+1618: Maräng m. choklad
+1619: Småkakor olika sorter
+1620: Jitterbugg m. mördeg maräng
+1621: Cookie amerikansk m. choklad
+1623: Kex smörgåskex
+1624: Pepparkaka
+1625: Spettekaka
+1626: Maräng
+1627: Kex m. fyllning
+1628: Kex ostkex
+1629: Kex salta
+1630: Kex salta m. mjölk
+1631: Kex u. socker
+1632: Pepparkaka u. socker
+1633: Kex smörgåsrån
+1636: Glasstrut våffla ofylld
+1637: Småkakor u. socker
+1641: Deg smördeg frysvara
+1642: Deg filodeg kylvara el. frysvara
+1645: Gräddtårta
+1646: Toscabit m. mazarinmassa mandel choklad
+1647: Bärtårta m. grädde vaniljkräm sylt gele
+1648: Prinsesstårta m. grädde vaniljkräm hallonsylt marsipan
+1649: Chokladtårta Sachertårta
+1650: Napoleonbakelse m. grädde vaniljkräm hallonsylt glasyr
+1651: Frukttårta m. hallonsylt vaniljkräm mandelmassa frukt gele
+1652: Chokladbiskvi m. mandelbotten smörkräm choklad
+1653: Mazariner m. mördegsbotten mazarinfyllning glasyr
+1654: Mjuk kaka drömtårta chokladrulltårta
+1655: Mjuk kaka rulltårta m. sylt
+1656: Punschrulle
+1657: Chokladboll
+1658: Gräddtårta m. jordgubb banan hemlagad
+1659: Potatisbakelse m. vaniljkräm smörkräm marsipan
+1662: Semla vetebulle fylld m. mandelmassa vispad grädde
+1677: Muffins amerikansk
+1678: Mjuk kaka sockerkaka pepparkaka
+1686: Kex digestive fullkorn 23%
+1689: Glass gräddglass fett 12%
+1690: Glass vaniljsmak fett ca 8%
+1691: Glass fett ca 10%
+1692: Glass glasstrut fett ca 15%
+1693: Glass lättglass m. sötningsm. fett ca 6%
+1694: Glass glasstrut våffla m. vaniljglass daimbitar chokladöverdrag
+1695: Glass vaniljglass m. chokladkex
+1696: Glass gräddglass fett 15%
+1697: Glass fett 12%
+1698: Glass lättglass fett ca 5%
+1699: Glass glasspinne fett ca 25%
+1700: Glass glasspinne m. kakaoöverdrag fett 20%
+1701: Glass glasspinne el. split m. isöverdrag fett ca 6%
+1702: Glass glasstrut fett ca 10%
+1703: Glass mjukglass bägare
+1705: Glass glasstårta fett 17%
+1706: Glass m. maräng fett 10%
+1707: Glass havreglass m. vanilji fett 13%
+1712: Matlagningsbas m. havre fett 13%
+1713: Gräddfil fett 12%
+1714: Kaffegrädde fett 12%
+1715: Vispgrädde fett 40%
+1716: Mellangrädde fett 27%
+1717: Matlagningsgrädde fett 15%
+1719: Crème fraiche fett 34%
+1725: Gräddersättning pulver fett 35%
+1749: Fruktdryck blåbär berikad
+1750: Fruktsoppa pastöriserad ätf. blandad torkad frukt berikad
+1751: Nyponsoppa ätf. pastöriserad el. pulver berikad 
+1752: Nyponsoppa ätf. pulver osötad berikad
+1763: Vaniljsås m. mellanmjölk matlagningsgrädde vispgrädde hemlagad
+1773: Ostkaka lätt osötad fett 3%
+1775: Fromage citron
+1776: Vaniljsås m. havre fett 11%
+1777: Vaniljsås tillagad pulver m. mjölk
+1778: Glassås choklad
+1779: Glassås frukt
+1789: Äppelpaj friterad
+1792: Banan friterad m. glass tillagad på restaurang
+1793: Apelsinmarmelad
+1794: Gelé röda vinbär
+1795: Gelé svarta vinbär
+1796: Apelsinmarmelad lättsockrad lag
+1797: Marmelad olika smaker
+1798: Lingonsylt
+1800: Lingonsylt sötningsm.
+1801: Jordgubbssylt
+1802: Björnbärssylt
+1803: Blåbärssylt
+1804: Hallonsylt
+1805: Hjortronsylt
+1806: Krusbärssylt
+1808: Körsbärssylt
+1809: Äppelmos
+1810: Äppelmos lättsockrad
+1811: Äppelmos osötad el. sötningsm.
+1814: Apelsinsaft konc. berikad
+1815: Apelsinsaft drickf. berikad
+1817: Saft lättsockrad konc.
+1818: Måltidsdryck drickf.
+1819: Saft konc.
+1820: Saft drickf.
+1821: Svartvinbärssaft konc. berikad
+1822: Saft sötningsm. konc.
+1827: Fruktdryck u. kolsyra
+1828: Läsk
+1829: Läsk cola
+1830: Läsk light
+1831: Läsk cola light
+1832: Sportdryck drickf.
+1837: Hallonsaft drickf.
+1838: Svartvinbärssaft drickf. berikad
+1840: Lingondricka drickf. berikad
+1841: Äppeldricka drickf. berikad
+1842: Saft sötningsm. drickf. berikad
+1843: Glass isglass
+1844: Glass sorbet
+1845: Glass isglass saftis
+1847: Chokladdryck drickf.
+1848: Mjölkchoklad m. hackade hasselnötter
+1849: Mjölkchoklad fylld m. mandelkrokant
+1850: Mjölkchoklad m. mjuk kolafyllning
+1851: Kex m. mjölkchokladöverdrag
+1852: Kex m. kola mjölkchokladöverdrag
+1853: Mjuk nougat m. kolasås jordnötter mjölkchokladöverdrag
+1854: Mjuk chokladmaräng m. kola mjölkchokladöverdrag
+1855: Choklad chokladpraliner
+1858: Chokladpralin
+1859: Mjuk kokos m. mjölkchokladöverdrag
+1860: Nötkräm chokladkräm
+1861: Mjölkchoklad m. sötningsm.
+1863: Gelégodis
+1864: Karameller
+1865: Kola
+1867: Marmeladkonfekt
+1868: Skumgodis
+1869: Polkagris
+1870: Tuggummi
+1871: Klubba chokladkola karamell
+1875: Chokladkola mörk m. chokladöverdrag
+1876: Kex rån m. chokladfyllning
+1877: Fruktkola
+1879: Skumboll m. chokladöverdrag kokos
+1880: Skumboll m. chokladöverdrag
+1881: Bar energibar m. choklad nötter
+1882: Karameller sockerfria
+1884: Tuggummi sockerfritt
+1886: Kakaopulver fett 20-22%
+1887: Chokladdryckspulver m. socker fett 2,5%
+1891: Måltidsersättning pulver chokladsmak berikad
+1892: Socker
+1893: Brun farin
+1894: Ljus sirap
+1896: Honung
+1897: Druvsocker
+1898: Fruktsocker
+1899: Sorbitol m. sackarin
+1900: Svagdricka vol. % 2,3
+1901: Öl lättöl vol. % 2,3
+1902: Öl pilsner folköl vol. % 3,5
+1903: Cider vol. % 1
+1904: Vin vitt vol. % 1
+1905: Vin rött el. rosé vol. % 1
+1906: Öl starköl el. exportöl vol. % 5,4
+1907: Vin rött vol. % 14
+1908: Vin vitt vol. % 12
+1909: Vin vitt el. rhenvin vol. % 10
+1912: Glögg vin vol. % 10
+1914: Starkvin vol. % 18 typ Madeira
+1915: Starkvin vitt rött vol. % 20 typ Portvin
+1916: Starkvin halvtorr vol. % 17 typ Sherry
+1917: Glögg starkvin vol. % 16
+1918: Brännvin renat el. vodka vol. % 40
+1919: Likör söt vol. % 24
+1920: Likör Kaptenlöjtnant vol. % 38
+1921: Konjak el. brandy vol. % 40
+1922: Punsch vol. % 26
+1923: Rom vol. % 40
+1924: Brännvin kryddat vol. % 40 
+1925: Gin vol. % 40
+1926: Whisky vol. % 40
+1927: Likör mindre söt vol. % 24
+1930: Bovetemjöl
+1931: Havremust pulver
+1932: Kornmjöl fullkorn
+1933: Majsmjöl gult u. groddar
+1934: Rågmjöl fullkorn
+1935: Vetemjöl fullkorn grahamsmjöl
+1936: Vetediet berikad
+1938: Vetemjöl bagerivetemjöl
+1941: Vetemjöl
+1945: Majsstärkelse
+1946: Potatismjöl
+1947: Samarinpulver
+1948: Samarin drickf.
+1949: Vatten sodavatten
+1950: Vatten vichyvatten
+1951: Vatten mineralvatten
+1953: Vatten kranvatten
+1955: Snabbkaffe pulver
+1956: Snabbkaffe drickf.
+1957: Kaffe bryggt
+1958: Kaffe espresso bryggt drickf.
+1959: Snabbkaffe koffeinfritt drickf.
+1960: Tepulver
+1962: Te bryggt
+1963: Örtte drickf.
+1964: Nyponte drickf. m. svarta vinbär
+1965: Ättiksprit ättiksyra 12%
+1966: Vinäger ättiksyra 7%
+1967: Äppelcidervinäger ättiksyra 7%
+1968: Chilisås tomat
+1969: Ketchup
+1970: Engelsk brown sauce HP-sås
+1971: Grillsås
+1972: Senap svensk
+1973: Senap fransk
+1974: Sötsur sås
+1975: Salt m. jod
+1976: Salt mineralsalt
+1977: Salt havssalt u. jod
+1978: Salt örtsalt
+1979: Jäst färsk
+1980: Jäst torkad
+1981: Bakpulver
+1998: Brunsås tillagad pulver m. mjölk vatten
+1999: Gräddsås tillagad pulver m. mjölk vatten smör
+2004: Pesto m. basilika pinjenötter cashewnötter
+2006: Dippmix pulver olika smaker
+2007: Sweet chilisås
+2008: Pastasås m. tomat örtkryddor
+2009: Pastasås m. basilika
+2010: Sötsur sås m. grönsaker konserv.
+2011: Orientalisk sås m. grönsaker konserv.
+2012: Teriyakisås
+2024: Frukostflingor müsli fullkorn m. frukt
+2025: Frukostflingor müsli fullkorn m. bär
+2027: Frukostflingor müsli fullkorn m. socker frukt nötter
+2028: Frukostflingor crunchy fullkorn m. socker russin kokos
+2029: Frukostflingor crunchy naturell m. socker
+2030: Frukostflingor müsli fullkorn m. socker frukt kokos
+2031: Frukostflingor müsli fullkorn m. socker frukt bär
+2032: Frukostflingor müsli flingblandning fullkorn m. frukt nötter  
+2033: Frukostflingor müsli fullkorn m. frukt banan
+2035: Surimi fisk
+2036: Matlagningsbas fett 15%
+2037: Matlagningsbas fett ca 5%
+2039: Vispgrädde ersättningsprod. mjölk olja fett 20%
+2040: Kaffegrädde ersättningsprod. mjölk olja fett 10%
+2041: Vaniljvisp fett 12%
+2043: Crème fraiche smaksatt fett 13%
+2044: Crème fraiche smaksatt fett 28%
+2046: Mini fraiche fett 5%
+2048: Filmjölk naturell fett 4,2%
+2051: Vit choklad
+2052: Mörk choklad kakao ≥ 70%
+2053: Mörk choklad kakao < 70%
+2054: Bakchoklad mörk
+2055: Mjölkchoklad
+2056: Kebabkött frysvara
+2057: Ris avorio okokt
+2058: Lök rostad 
+2059: Glass glasspinne m. frukt  mjölk fett 5,5%
+2060: Glass glasspinne fett 10%
+2061: Bar m. fiber havre vete naturell
+2062: Knäckemacka vete olika fyllningar
+2063: Knäckemacka fullkorn råg olika fyllningar
+2064: Falafel kikärtskroketter frysvara
+2065: Pytt i panna m. sojaprotein veg.
+2066: Korv veg. soja- och veteprotein kylvara el. frysvara typ grillkorv
+2067: Soja- och veteprotein bullar kylvara el. frysvara
+2068: Sojaprotein färs kylvara el. frysvara
+2069: Veteprotein grytbitar
+2070: Matlagningsbas m. soja fett 17%
+2071: Bar müslibar fullkorn m. röd frukt berikad
+2072: Bar müslibar m. choklad berikad
+2184: Ostkaka fett 7%
+2185: Galiamelon
+2189: Rapsolja
+2190: Matfettsblandning fett 75% berikad
+2192: Lättmargarin fett 39% berikad typ Lätta
+2214: Aloe vera juice naturell
+2216: Aloe vera juice m. grönt te
+2217: Aloe vera-dryck m. tranbär äpple
+2218: Aloe vera-dryck naturell
+2220: Pasta makaroner spagetti okokt glutenfri
+2221: Pasta fusilli lasagneplattor okokt glutenfri
+2222: Pepparkaka glutenfri
+2223: Kex digestive fullkorn glutenfri
+2225: Hårt bröd glutenfritt fibrer ca 7,5% berikad typ grovknäcke
+2226: Pasta tagliatelle m. ägg okokt glutenfri
+2227: Pasta okokt majs 100% glutenfri
+2228: Bearnaisesås fett 8%
+2229: Klassisk gräddsås fett 6%
+2230: Ostsås fett 8%
+2231: Bearnaisesås fett ca 40%
+2232: Rödvinssås fett 1,5%
+2233: Kebabsås vit fett 30%
+2234: Svampsås fett 8,5%
+2236: Korv varmkorv mager fett 7%
+2238: Korv chorizo mager fett 9%
+2239: Korv middagskorv fett ca 9% kött ca 55 %
+2240: Påläggskorv salami mager
+2246: Mintplattor m. mörkchokladöverdrag
+2251: Matfettsblandning extrasaltad fett 75% berikad
+2255: Ost mozzarella fett 18%
+2269: Ingefära färsk
+2294: Kebabkött restaurang
+2301: Fruktdryck nypon blåbär berikad
+2302: Energidryck m. socker berikad
+2305: Öl alkoholfri
+2306: Kanel
+2401: Flytande margarin mjölkfri fett 80% berikad
+2403: Bordsmargarin mjölkfri fett 70% berikad typ Carlshamn
+2404: Hushållsmargarin mjölkfri fett 80% berikad typ Carlshamn
+2468: Tilapia rå
+2472: Lättmargarin fett 30% berikad typ Mini Lätta
+2474: Flytande margarin fett 76% berikad typ Becel
+2475: Ris basmati okokt
+2477: Ris jasmin okokt
+2478: Ris råris långkornigt okokt fullkorn
+2479: Ris grötris snabb okokt
+2481: Ris långkornigt okokt
+2482: Ris långkornigt parboiled okokt
+2483: Ris snabbris okokt salt 1%
+2484: Ris snabbris okokt
+2485: Ris grötris rundkornigt okokt
+2490: Bordsmargarin fett 75% berikad typ Becel Gold
+2552: Älg högrev rå
+2555: Älg ryggbiff rå
+2557: Tacoskal
+2559: Romansallat
+2561: Ruccolasallat
+2565: Okra kokt u. salt
+2569: Litchi
+2570: Carambole stjärnfrukt
+2658: Potatisgratäng kylvara
+2883: Salt u. jod
+2963: Godisklubba 
+3069: Chilinötter
+3071: Pinjefrö
+3141: Korv ren rå
+3147: Lingonsylt lättsockrad
+3213: Korv lamm rå
+3243: Kvarg naturell fett 0,2%
+3247: Brödkrutonger 
+3281: Jordgubbssylt lättsockrad 
+3323: Älg färs rå
+3324: Älg ytterlår
+3334: Chips potatis naturell
+3418: Matolja
+3433: Linfröolja
+3447: Frukostflingor havre fullkorn typ Havrefras
+3499: Barnmat klämmis m. yoghurt banan jordgubb konserv.
+3500: Sill inlagd olika smaker
+3518: Mjölmålla quinoa röd kokt m. salt
+3522: Bananchips 
+3564: Bulgur kokt u. salt fullkorn
+3668: Sojadryck berikad
+3710: Soygurt smaksatt eko. berikad
+3752: Couscous kokt m. salt fullkorn
+3756: Pasta kokt m. salt
+3759: Hallon importerade
+3760: Vita bönor torkade kokta m. salt
+3761: Stora vita bönor konserv. u. lag
+3762: Kikärtor torkade kokta m. salt
+3765: Sötpotatis rå
+3786: Dinkelmjöl fullkorn
+3790: Bröd rågsikt fibrer ca 7%
+3791: Bröd vitt fibrer ca 5% typ formfranska
+3793: Hårt bröd fullkorn råg fibrer ca 19% typ Rågi
+3794: Bröd fullkorn vete råg fibrer ca 6%
+3795: Bröd vitt fibrer ca 5% typ limpa
+3797: Bröd fullkorn råg fibrer ca 7%
+3798: Korvbröd grovt
+3800: Lax odlad Norge fjordlax rå över disk
+3815: Kikärtor konserv. u. lag
+3816: Kidneybönor röda bönor konserv. u. lag
+3817: Svarta bönor konserv. u. lag
+3818: Hamburgerbröd
+3819: Bröd vitt mjölk fibrer ca 4% typ tekaka
+3820: Bruna bönor rullpack kylvara
+3821: Gröna linser torkade kokta m. salt
+3822: Röda linser torkade kokta m. salt
+3823: Röda linser konserv. u. lag
+3824: Gröna linser konserv. u. lag
+3825: Hamburgerbröd grovt
+3828: Pasta kokt m. salt fullkorn>50%
+3840: Ägg rått eko.
+3841: Äggula rå eko.
+3938: Huvudsallat
+4011: Majskrokar
+4025: Wasabi pasta
+4026: Frukt torkad m. socker
+4042: Vattenkastanj rå
+4049: Tranbär torkade
+4052: Mâchesallat
+4074: Hampafröolja
+4107: Bordsmargarin fett 60% berikad typ Ica Basic
+4112: Hushållsmargarin fett 80% berikad
+4117: Nudlar kokta m. kryddor
+4131: Palmolja
+4225: Ananas frysvara
+4226: Pangasiusmal rå
+4227: Kokosbaserad bit berikad som alternativ till ost
+4385: Potatis Solist rå
+4386: Potatis Swift rå
+4415: Potatis Solist kokt m. salt
+4416: Potatis Swift kokt m. salt
+4445: Potatis Asterix rå
+4447: Nudlar risnudlar okokta
+4448: Nudlar risnudlar kokta
+4456: Havtorn
+4457: Potatis rå
+4458: Potatis kokt m. salt
+4511: Potatis färsk kokt m. salt
+4512: Potatis färsk rå
+4513: Potatis Inova rå
+4514: Potatis King Edward rå
+4515: Potatis mandelpotatis rå
+4516: Potatis kokt m. salt tillagad i storhushåll
+4518: Potatis Asterix kokt m. salt
+4519: Potatis Inova kokt m. salt
+4520: Potatis King Edward kokt m. salt
+4521: Potatis mandelpotatis kokt m. salt
+4537: Mjölkpulver helmjölk
+4586: Hoki rå
+4588: Aronia slånaronia
+4589: Vinbär vita
+4600: Pilgrimsmussla
+4601: Laxbullar tillagade m. sås
+4602: Fiskpinnar ugnsstekta
+4607: Skarpsill
+4608: Sill inlagd u. lag
+4609: Sill höstsill inlagd u. lag
+4610: Sill inlagd senapssill u. sås
+4611: Kapkummel rå
+4612: Guldsparid rå
+4613: Havsabborre rå
+4615: Alaska pollock rå
+4659: Olivolja extra jungfruolja
+4661: Rapsolja kallpressad
+4662: Flytande matfettsblandning fett 80% berikad typ Arla smör- och rapsolja
+4663: Matfettsblandning fett 40% berikad typ Bregott mindre
+4937: Tomat körsbärstomat röd
+4938: Tomat torkad m. olja avrunnen
+4939: Broccoli kokt u. salt frysvara
+4941: Spenat färsk
+4942: Mangold röd småbladig färsk
+4946: Kruksallat
+4947: Lök röd
+5043: Hjort kronhjort kött rå
+5044: Hjort dovhjort färs rå
+5045: Ren kött kallrökt rå
+5046: Hjort skav rå
+5047: Korv hjort rå
+5048: Vildsvin bog rå
+5049: Vildsvin filé rå
+5050: Rådjur stek rå
+5058: Vildsvin stek rå
+5059: Korv kycklingkorv
+5060: Vildsvin kött rå
+5064: Rådjur bog rå
+5065: Ren kött rå
+5066: Nöt kött rå
+5067: Lamm kött rå
+5068: Lamm grytbitar rå
+5085: Bordsmargarin fett 60% berikad typ Flora original
+5087: Flytande matfettsblandning fett 80% berikad typ Ica raps- och smörolja
+5132: Lättsmör fett ca 60%
+5135: Mango frysvara
+5136: Potatis höst kokt u. salt
+5147: Julmust påskmust
+5149: Slush drickf.
+5150: Mandeldryck berikad
+5152: Alkoläsk kolsyrad dryck vol. % 4-5
+5153: Potatis kokt u. salt
+5184: Tranbärsdryck drickf. berikad
+5727: Minimjölk fett < 0,1% berikad
+5847: Pulled pork gris m. marinad tillagad
+5859: Tropisk juice drickf.
+5860: Sojabönor färska förvällda u. skal
+5861: Sparris grön kokt m. salt
+5862: Kålrot kokt
+5863: Brysselkål kokt
+5864: Rotselleri kokt
+5865: Gula ärtor kokta m. salt
+5866: Bruna bönor torkade kokta m. salt
+5867: Gråärtor kokta m. salt
+5868: Åkerbönor torkade kokta m. salt
+5869: Äpple Aroma rött
+5870: Äpple Ingrid Marie rött
+5871: Äpple Frida
+5872: Äpple Golden delicious Granny Smith grönt
+5875: Kyckling pulled chicken tillagad m. marinad
+5916: Tacosås
+5926: Hälleflundra odlad Atlanten rå
+5942: Julmust light
+5956: Havregurt naturell fett 2,2% berikad
+5957: Fraiche m. havre veg. fett 15% berikad
+5961: Havrebaserat bredbart pålägg naturell
+5963: Havredryck m. apelsin mango
+5965: Korv grillkorv grillad kött 32-35%
+5966: Korv falukorv tillagad kött 58%
+5967: Korv bratwurst tillagad kryddig kött 73-75%
+5968: Blodpudding blodkorv tillagad
+5969: Gris sidfläsk el. stekfläsk rimmat stekt
+5970: Korv kabanoss tillagad kryddig kött 90%
+5973: Kryddblandning taco
+5974: Bröd vitt vetetortilla
+5975: Avokado frysvara
+5978: Gris färs tillagad u. salt
+5979: Te fermenterat m. socker
+5999: Gris skinka innanlår tillagad
+6002: Gris skinkstek tillagad u. salt
+6003: Gris ytterfilé tillagad
+6004: Gris fläskkotlett tillagad
+6005: Gris fläskfilé tillagad
+6006: Nöt kalv lever tillagad
+6007: Kyckling lever ugnsstekt
+6008: Gris lever tillagad
+6009: Kalkon rökt tunna skivor
+6010: Korv veg. soja- och veteprotein tillagad typ middagskorv
+6053: Cashewnötter rostade m. salt
+6057: Gris kassler tillagad
+6058: Kyckling bröstfilé tillagad u. skinn frysvara
+6069: Drickyoghurt smaksatt fett ca 1%
+6070: Ost hårdost eko. fett 28%
+6071: Vaniljsås ätf.
+6076: Yoghurt naturell eko. fett 3% berikad
+6079: Pannkaka tunn helfabrikat
+6081: Hårt bröd fullkorn råg fiber ca 20% typ sport 
+6083: Bröd vitt grovt m. nyckelhål typ formfranska
+6084: Bröd vitt typ levain
+6086: Frukostflingor müsli vete havre råg korn fullkorn m. frukt nötter fröer
+6087: Mandelmjöl
+6088: Filmjölk eko. fett 3% berikad
+6089: Kvarg drickf. olika smaker
+6090: Kvarg smaksatt sötningsm.
+6091: Kvarg smaksatt m. socker
+6092: Drickyoghurt smaksatt fett ca 1% socker ca 8%
+6093: Drickyoghurt smaksatt fett ca 1% socker ca 11%
+6110: Frukostflingor fullkorn berikad typ Specialflingor
+6113: Yoghurt naturell fett 10%
+6120: Pizza m. köttfärs frysvara
+6121: Pizza m. köttstek frysvara
+6122: Pizza m. tomat mozzarella veg. frysvara
+6131: Noni fruktpuré
+6134: Äppeljuice konc.
+6145: Matvete kokt m. salt
+6146: Mathavre kokt m. salt
+6154: Psylliumfröskal
+6157: Chiafrö
+6158: Hampafrö m. skal
+6159: Hampafrö u. skal
+6160: Vallmofrö
+6164: Senap sötstark
+6165: Kokosolja
+6166: Majonnäs m. sojabönolja fett 80%
+6167: Majonnäs m. solrosolja fett 80%
+6168: Kräfta kräftstjärtar konserv. u. lag
+6169: Sikrom Nordamerikansk
+6170: Påläggskaviar m. färskost
+6171: Tångkaviar röd
+6172: Tångkaviar påläggskaviar
+6173: Lax vildfångad Sverige rå
+6174: Lax odlad Norge fjordlax rå frysvara
+6225: Lax odlad Norge fjordlax rå förpackad
+6231: Välling för barn pulver fullkorn osötad berikad
+6234: Välling för barn pulver havre osötad berikad
+6235: Välling för barn pulver majs osötad berikad
+6236: Välling för barn pulver havre mjölkfri osötad berikad
+6239: Barngröt pulver havre m. banan äpple mjölkfri osötad berikad
+6240: Barngröt pulver naturell fullkorn osötad berikad
+6245: Barnmat pasta couscous m. kyckling konserv.
+6246: Barnmat spagetti m. köttfärssås konserv.
+6247: Barnmat potatis m. nötköttsgryta konserv.
+6248: Barnmat pastagratäng m. fläskkött konserv.
+6249: Barnmat fiskgryta konserv.
+6251: Barnmat lasagne pastagratäng veg. m. grönsaker konserv.
+6252: Barnmat frukt bär m. yoghurt konserv.
+6253: Barnmat frukt bär m. yoghurt konserv. berikad
+6254: Fruktstång fruktgodis
+6255: Fruktstång fruktgodis berikad
+6256: Barnmat klämmis m. gröt päron mango havre hirs konserv.
+6264: Sojaprotein bitar kylvara el. frysvara typ Tzay®
+6265: Sojaprotein bitar frysvara typ Oumph®
+6266: Havreprotein pulled havre strimlor kylvara el. frysvara
+6267: Sojaprotein färs kylvara el. frysvara berikad
+6268: Soja- och veteprotein färs frysvara
+6270: Sojaprotein bullar kylvara el. frysvara
+6272: Mykoprotein bullar frysvara
+6273: Mykoprotein nugget kylvara el. frysvara
+6274: Sojaprotein nugget kylvara el. frysvara
+6275: Soja- och veteprotein nugget kylvara el. frysvara
+6276: Soja- och veteprotein nugget kylvara el. frysvara berikad
+6277: Soja- och veteprotein bitar som alternativ till bacon kylvara el. frysvara
+6279: Soja- och veteprotein schnitzel kylvara el. frysvara
+6280: Soja- och veteprotein schnitzel kylvara el. frysvara berikad
+6281: Mykoprotein schnitzel kylvara el. frysvara
+6328: Flytande matfettsblandning fett 80% berikad
+6330: Jams kokt u. salt
+6333: Vindruvor gröna
+6334: Vindruvor röda
+6468: Havremjöl fullkorn
+6478: Öring Sverige höst rå 
+6480: Kornflingor ångprep. fullkorn
+6481: Rågflingor ångprep. fullkorn
+6482: Veteflingor ångprep. fullkorn
+6494: Dinkelmjöl
+6542: Vetemjöl durum
+6552: Modersmjölksersättning
+6553: Tillskottsnäring för småbarn
+6576: Mjölblandning rågsikt
+6651: Rapsolja berikad
+6666: Muskotnöt malen
+6675: Fisksås
+6676: Durra el. andra sorghumarter mjöl
+6677: Amarant mjöl
+6678: Kiwi gul
+6682: Sojasås shoyu
+6757: Bröd rågsikt fibrer ca 4% typ rågkaka
+6758: Sött vetebröd kanelbulle gräddad kylvara frysvara el. butiksbakad
+6759: Bröd fröbröd fullkorn vete råg
+6760: Pizza m. tomatsås ost restaurang
+6761: Pizzadeg tillagad kylvara
+6763: Frukostflingor vete puffat m. choklad
+6764: Frukostflingor granola m. frukt nötter
+6765: Frukostflingor granola m. kakao hallon
+6766: Majskaka smaksatt ost
+6767: Linskaka smaksatt
+6768: Kex bokstavskex fullkorn
+6769: Pepparkaksdeg kylvara
+6770: Bröd vitt croissant gräddad kylvara frysvara el. butiksbakad
+6780: Pommes frites smaksatta frysvara
+6781: Frukostflingor majs typ cornflakes
+6782: Ris sushiris kokt
+6786: Nudlar äggnudlar kokta u. salt
+6790: Havregurt hallon berikad
+6791: Havregurt blåbär hallon berikad
+6792: Havregurt jordgubb berikad
+6793: Havregurt vanilj berikad
+6795: Havredryck fett 1,5% eko. berikad
+6797: Havredryck fett 0,5 % eko. berikad
+6801: Havregurt naturell fett 11 % berikad
+6802: Glass havreglass chokladfudge
+6803: Glass havreglass karamell hasselnöt
+6804: Glass havreglass karamell vanilj
+6806: Purjolök frysvara
+6807: Havrebaserat bredbart pålägg tomat basilika
+6808: Havrebaserat bredbart pålägg vitlök gurka
+6809: Havredryck choklad fett 2,5 % berikad
+6819: Kex bokstavskex fullkorn berikad
+6837: Hushållsmargarin mjölkfri fett 80% berikad
+6843: Pommes frites klyftpotatis frysvara
+6849: Sojaprotein kebab frysvara typ Oumph®
+6850: Sojaprotein pulled sojaprotein frysvara typ Oumph®
+6852: Sojaprotein bitar m. timjan vitlök frysvara typ Oumph®
+6855: Rismål u. sylt
+6856: Rismål u. sylt u. socker m. sötningsm.
+6857: Chips linser smaksatta fett 17%
+6858: Linsbågar fett 28%
+6862: Frukostflingor ris glutenfri berikad typ Specialflingor
+6863: Frukostflingor granola glutenfri
+6864: Frukostflingor majs glutenfri berikad
+6868: Bovetemjöl grovt
+6869: Teffmjöl
+6870: Våffelmix glutenfri
+6872: Majsgryn polenta
+6879: Hårt bröd m. chiafrö glutenfritt fibrer ca 10%
+6880: Hårt bröd m. sesamfrö glutenfritt fibrer ca 9%
+6881: Bröd vitt osötat glutenfritt fibrer ca 7% typ ciabatta
+6883: Sockerbetsfiber
+6884: Kex salta glutenfritt
+6888: Korv veg. sojaprotein kylvara el. frysvara typ grillkorv
+6889: Korv veg. solrosprotein kylvara el. frysvara typ grillkorv
+6890: Korv veg. solros- och ärtprotein kylvara el. frysvara typ grillkorv
+6892: Korv veg. grönsaker kylvara el. frysvara typ grillkorv
+6898: Burgare veg. potatis linser bönor majs kylvara el. frysvara
+6902: Sojadryck osötad berikad
+6903: Mandeldryck osötad berikad
+6904: Kokosnötdryck 
+6907: Mörk choklad kakao 70%
+6908: Mörk choklad kakao 85%
+6991: Kakaobönor
+6992: Choklad ljus vegansk
+6993: Gelégodis u. gelatin
+6994: Mango torkad
+6996: Gojibär torkade
+6997: Glykossirap
+6998: Näringsjäst
+6999: Havreris kokt m. salt
+7000: Lakritsgodis
+7006: Hirs kokt m. salt
+7011: Kokosbaserad bit riven fett ca 20% som alternativ till ost
+7012: Kokosbaserad bit fett ca 20% som alternativ till ost
+7015: Korv kryddkorv kött ca 75%
+7018: Snabbkaffe koffeinfritt pulver
+7019: Mullbär
+7020: Te fermenterat m. fruktjuice
+7021: Te fermenterat m. sötningsm.
+7022: Färskost ricotta fett ca 10%
+7023: Wasabirot
+7024: Macadamianötter
+7025: Mjölmålla quinoa okokt
+7026: Mjölmålla quinoa mjöl
+7027: Tempeh
+7028: Arrowrotmjöl
+7029: Vinblad konserv.
+7030: Hampamjöl avfettat
+7031: Kakaosmör
+7032: Röd pepparsås
+7034: Shiitakesvamp
+7035: Ostronskivling
+7042: Blåbär amerikanska
+7047: Odon
+7048: Rönnbär
+7050: Aronia svart
+7051: Aronia torkad pulver
+7052: Rågkli
+7053: Ärtskott
+7054: Kakaopulver fett 10-15%
+7087: Fruktyoghurt fett 2% berikad
+7088: Fruktyoghurt fett 2,5% berikad
+7135: Soygurt smaksatt osötad berikad
+7136: Soygurt naturell eko. berikad
+7137: Crème fraiche fett 32%
+7138: Crème fraiche laktosfri fett 32-34%
+7139: Crème fraiche lätt fett 13%
+7140: Crème fraiche lätt laktosfri fett 13%
+7141: Ädelost blågrön mögelost fett ca 35%
+7142: Ost hårdost parmesan fett 29% typ Grana Padano
+7143: Soygurt smaksatt berikad
+7144: Soygurt naturell berikad Ca vitD B12 folsyra riboflavin
+7145: Soygurt naturell berikad Ca vitD B12
+7146: Yoghurt smaksatt m. sötningsm. fett 0% typ grekisk yoghurt
+7147: Yoghurt mild honung fett 2% berikad
+7148: Yoghurt mild vanilj fett 2,7% berikad
+7149: Yoghurt naturell lätt laktosfri fett ca 0,4% berikad
+7150: Gris skinka bog konserv.
+7152: Fruktyoghurt lätt m. socker fett 0,1%
+7153: Fruktyoghurt lätt m. sötningsm. fett 0,1% berikad
+7154: Fruktyoghurt lättsötad fett 1,5% berikad
+7156: Tonfisk gulfenad rå
+7165: Flytande margarin fett 70%
+7166: Krabba vitt kött kokt
+7167: Krabba brunt kött kokt
+7169: Kex m. kola rispuffar mjölkchokladöverdrag
+7170: Maltkulor m. mjölkchokladöverdrag
+7182: Broccoli kokt m. salt frysvara
+7190: Räkchips friterade
+7192: Sellerikål pak choi
+7193: Koriander blad
+7194: Grönmynta blad
+7195: Kardemumma torkad
+7196: Kryddnejlika torkad malen
+7197: Koriander frö torkad
+7198: Gurkmeja torkad
+7199: Spiskummin frö torkad
+7200: Paneer
+7226: Mörk choklad m. sötningsm.
+7236: Hallonsylt lättsockrad
+7252: Flytande margarin fett 70% berikad
+7257: Fruktyoghurt fett 3,6% berikad
+7261: Matfettsblandning fett 70% typ Flora & smör
+7263: Lättmargarin fett 40% berikad
+7264: Vispgrädde ersättningsprod. mjölk olja fett ca 30%
+7265: Vaniljsås ätf. kyld
+7266: Kokosmjölk fett ca 18%
+7267: Äggvita rå eko.
+7268: Renfett
+7269: Klarnat smör ghee
+7270: Bordsmargarin fett 79% typ Plant b*tter
+7271: Bordsmargarin fett 91% typ BreOliv
