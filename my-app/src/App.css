@@ -182,3 +182,92 @@
     border-right-color: var(--border);
   }
 }
+
+/* Boring css for auth-container */
+/* TEMPORÄR - DETTA SKA FLYTTAS TILL SJÄLVA LOGIN/SIGNUP SIDAN SEN */
+/* Auth card */
+.auth-container {
+  background: #771e1e;
+  width: 350px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+/* Titles */
+.auth-container h2,
+.auth-container h1 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Inputs */
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Buttons */
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-container button:hover {
+  background: #5563d6;
+}
+
+/* Google button */
+.google-btn {
+  background: #db4437;
+}
+
+.google-btn:hover {
+  background: #c33d2f;
+}
+
+/* Divider */
+.divider {
+  margin: 15px 0;
+  color: #aaa;
+}
+
+/* Links */
+.auth-container p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.auth-container a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
