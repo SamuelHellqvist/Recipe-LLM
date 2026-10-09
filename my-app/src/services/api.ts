@@ -2,12 +2,14 @@
 // to the database.
 
 //livsmedelsverket API base URL
+  const language = 2; // 1 = Swedish, 2 = English
+
 const BASE_URL =
   "https://dataportal.livsmedelsverket.se/livsmedel/api/v1";
 
 export async function getFoods() {
-  const response = await fetch(
-    `${BASE_URL}/livsmedel?offset=0&limit=10000&sprak=1`
+    const response = await fetch(
+    `${BASE_URL}/livsmedel?offset=0&limit=10000&sprak=${language}`
   );
 
   if (!response.ok) {
@@ -27,7 +29,7 @@ export async function getDishes() {
 
 export async function getIngredients(id: number) {
   const response = await fetch(
-    `${BASE_URL}/livsmedel/${id}/ingredienser?sprak=1`
+    `${BASE_URL}/livsmedel/${id}/ingredienser?sprak=${language}`
   )
 
   if (!response.ok) {
