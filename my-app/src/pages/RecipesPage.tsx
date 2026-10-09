@@ -6,6 +6,7 @@ import { getDishes, getIngredients } from "../services/api";
 import FavoriteButton from "../components/FavoriteButton";
 import type { Food, Ingredient } from "../types/food";
 import "./RecipesPage.css";
+import { Link } from "react-router-dom";
 
 function RecipesPage() {
   const [dishes, setDishes] = useState<Food[]>([]);
@@ -124,6 +125,10 @@ function RecipesPage() {
   return (
     <main className="recipes-page">
       <header className="recipes-header">
+         <Link to="/" className="favorites-back">
+          ← Home
+        </Link>
+        
         <h1>Explore Recipes</h1>
         <p>Find something delicious to cook today!</p>
       </header>

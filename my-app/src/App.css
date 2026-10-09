@@ -182,3 +182,63 @@
     border-right-color: var(--border);
   }
 }
+
+.home-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 30px auto;
+}
+
+.home-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.recipes-btn {
+  background: #22a66b;
+  color: white;
+}
+
+.recipes-btn:hover {
+  background: #198758;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(34, 166, 107, 0.25);
+}
+
+.favorites-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid #52617a;
+}
+
+.favorites-btn span {
+  color: #fb7185;
+}
+
+.favorites-btn:hover {
+  background: #25324a;
+  border-color: #fb7185;
+  transform: translateY(-3px);
+}
+
+.home-nav-btn:focus-visible {
+  outline: 3px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .home-nav-btn {
+    width: 100%;
+  }
+}

@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../services/firebase";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   // const [email, setEmail] = useState('');
@@ -16,6 +17,19 @@ export default function Home() {
       <button onClick={() => signOut(auth)}>
         Logout
       </button>
+    
+<div className="home-navigation">
+  <Link to="/recipes" className="home-nav-btn recipes-btn">
+    Explore Recipes
+    <span>→</span>
+  </Link>
+
+  <Link to="/favorites" className="home-nav-btn favorites-btn">
+    My Favorites
+  </Link>
+</div>
+
+
     </div>
       {/* Bento Grid Layout - Mobile Optimized */}
       <section className="container px-4 py-4">
