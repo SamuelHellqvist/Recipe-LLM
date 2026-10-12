@@ -1,8 +1,22 @@
 import { signOut } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getUserData } from "../services/api"
+
+async function fetchTest(){
+  let uid = "XtFiQeeOUgXGcoNUU3ER";
+  const userRef = doc(db, 'users', uid);
+  const userDoc = await getDoc(userRef);
+  
+  if (userDoc.exists()) {
+    console.log('User found:', userDoc.data());
+    return userDoc.data();
+  } else {
+    console.log('No such document!');
+  }
+}
 
 export default function Home() {
   const [userData, setUserData] = useState<any>(null);
@@ -23,6 +37,9 @@ export default function Home() {
         const userRef = doc(db, "users", currentUser.uid);
         const userDoc = await getDoc(userRef);
 
+        console.log(userRef)
+        console.log(currentUser.uid)
+
         if (userDoc.exists()) {
           const data = userDoc.data();
           setUserData({ ...data, uid: userDoc.id });
@@ -30,7 +47,7 @@ export default function Home() {
         } else {
           // This shouldn't happen, but handle it gracefully
           console.warn("⚠️ User not found in Firestore collection");
-          navigate("/login", { replace: true });
+          // navigate("/login", { replace: true });
         }
       } catch (err) {
         console.error("Error loading user data:", err);
@@ -53,6 +70,14 @@ export default function Home() {
       setUserData(null);
     } catch (err) {
       console.error("Error signing out:", err);
+    }
+  };
+
+  const handleTest = async () => {
+    try{
+      await getUserData("6dLNfB7tjEbAP31KG5tB7GzvHhU2"); // only works for your own uid, db rules
+    } catch (err) {
+      console.error("Error getUserData:", err);
     }
   };
 
@@ -142,6 +167,18 @@ export default function Home() {
 
         </div>
       </section>
+      <button 
+            onClick={handleTest}
+            className="mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors"
+          >
+            Fetch Test
+      </button>
+      <button 
+            onClick={handleLogout}
+            className="mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors"
+          >
+            Logout
+      </button>
 
       {/* User Preferences (if available) */}
       {userData && userData.preferences && (

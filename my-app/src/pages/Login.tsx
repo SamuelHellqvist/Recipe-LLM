@@ -1,7 +1,8 @@
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../services/firebase";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { createGoogleUser } from "../services/api";
 
 import "../App.css"
 
@@ -21,12 +22,24 @@ export default function Login() {
     }
   };
 
+  const navigate = useNavigate();
+
   const googleLogin = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      // ✅ Don't call window.close() here - Firebase handles popup closing automatically!
+      const result = await signInWithPopup(auth, googleProvider);
+      
+      // Create user document in Firestore 'users' collection
+      await createGoogleUser(result);
+
+      console.log("✅ Google login successful and user created in Firestore");
+      
+      // Optional: Redirect to home/dashboard after successful login
+      navigate("/")
+
     } catch (err: any) {
       setError(err.message || "Google login failed");
-    }
+    } 
   };
 
   // Add onSubmit handler
