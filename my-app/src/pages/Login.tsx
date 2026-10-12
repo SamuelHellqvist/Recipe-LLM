@@ -1,8 +1,9 @@
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../services/firebase";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ensureUserProfile } from "../services/users";
+import { createGoogleUser } from "../services/api";
 
 import "../App.css"
 
