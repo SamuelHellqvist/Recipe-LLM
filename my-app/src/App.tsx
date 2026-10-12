@@ -9,6 +9,8 @@ import Old from './pages/Old'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Landing from './pages/Landing'
+import Profile from './pages/Profile'
 
 
 function App() {
@@ -36,11 +38,13 @@ function App() {
           <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
           <Route path="/old" element={<Old />} />
           <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
+          <Route path="/landing" element={<Landing />} />
+          <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
+
         </Routes>
       </BrowserRouter>
     </>
-  )
-
+  );
 }
 
 export default App;

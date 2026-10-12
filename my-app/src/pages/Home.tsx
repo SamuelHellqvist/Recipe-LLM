@@ -1,22 +1,94 @@
 import { signOut } from "firebase/auth";
-import { auth } from "../services/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../services/firebase";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  // const [email, setEmail] = useState('');
+  const [userData, setUserData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+      if (!currentUser) {
+        // User is signed out - redirect to home with clean state
+        setUserData(null);
+        setLoading(false);
+        return;
+      }
+
+      try {
+        // Get user document from Firestore
+        const userRef = doc(db, "users", currentUser.uid);
+        const userDoc = await getDoc(userRef);
+
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          setUserData({ ...data, uid: userDoc.id });
+          console.log("✅ Welcome! User data loaded from Firestore:", data);
+        } else {
+          // This shouldn't happen, but handle it gracefully
+          console.warn("⚠️ User not found in Firestore collection");
+          navigate("/login", { replace: true });
+        }
+      } catch (err) {
+        console.error("Error loading user data:", err);
+        // setError("Failed to load user profile");
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
+
+  const handleLogout = async () => {
+    try {
+      // Sign out from Firebase Auth
+      await signOut(auth);
+      console.log("✅ Logged out successfully");
+      
+      // Clear user data state
+      setUserData(null);
+    } catch (err) {
+      console.error("Error signing out:", err);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">
-      <div className="auth-container">
-      <h1>Welcome 🎉</h1>
+      {/* User Info Header */}
+      {userData && (
+        <div className="auth-container mb-8">
+          <h1>Welcome 🎉, {userData.displayName || userData.email?.split('@')[0]}</h1>
 
-      <p className="user-email">
-        {auth.currentUser?.email}
-      </p>
+          <p className="user-email">
+            👤 <span className="text-blue-400">{userData.email}</span>
+          </p>
 
-      <button onClick={() => signOut(auth)}>
-        Logout
-      </button>
-    </div>
+          {/* User ID for debugging (hidden in production) */}
+          <div className="bg-slate-800/50 rounded p-2 text-xs font-mono text-slate-400">
+            UID: {userData.uid.substring(0, 8)}...
+          </div>
+
+          <button 
+            onClick={handleLogout}
+            className="mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors"
+          >
+            Logout
+          </button>
+        </div>
+      )}
+
       {/* Bento Grid Layout - Mobile Optimized */}
       <section className="container px-4 py-4">
         {/* <h2 className="text-4xl font-bold mb-12 text-center">Welcome to Our App</h2> */}
@@ -29,6 +101,16 @@ export default function Home() {
           {/* Row 1: Vertical tall card on left, square on right */}
           <div className="aspect-ratio-4/3 row-span-2 bg-slate-800 rounded-xl p-4">
             <h3 className="text-xl font-bold mb-3 text-blue-400">Vertical rectangle card</h3>
+            {userData && (
+              <>
+                <p className="text-sm text-slate-300 mt-2">
+                  <span className="font-semibold">Role:</span> {userData.role || "User"}
+                </p>
+                <p className="text-sm text-slate-400 mt-1">
+                  Member since: {new Date(userData.createdAt?.toDate ? userData.createdAt.toDate() : userData.createdAt).toLocaleDateString()}
+                </p>
+              </>
+            )}
           </div>
 
           {/* Row 1: Square on right */}
@@ -58,11 +140,31 @@ export default function Home() {
 
 
 
-
-
-
         </div>
       </section>
+
+      {/* User Preferences (if available) */}
+      {userData && userData.preferences && (
+        <section className="container px-4 py-4">
+          <div className="bg-slate-800 rounded-xl p-6 mb-4">
+            <h2 className="text-xl font-bold mb-4 text-blue-400">Your Preferences</h2>
+            <div className="grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <span className="text-slate-400">Theme:</span> 
+                <span className="ml-2">{userData.preferences.theme || "light"}</span>
+              </div>
+              <div>
+                <span className="text-slate-400">Notifications:</span> 
+                <span className="ml-2">{userData.preferences.notifications ? "On" : "Off"}</span>
+              </div>
+              <div>
+                <span className="text-slate-400">Language:</span> 
+                <span className="ml-2">{userData.preferences.language || "en"}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
