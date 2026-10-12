@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 
 import {
   BrowserRouter,
@@ -5,8 +6,6 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-
-import { useEffect, useState } from "react";
 
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { auth } from "./services/firebase";
@@ -24,6 +23,10 @@ import FavoritesPage from "./pages/FavoritesPage";
 function App() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
+
+  
+    
+
 
   useEffect(() => {
 
