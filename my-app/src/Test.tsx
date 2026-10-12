@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import OpenAI from 'openai';
 
 interface RecipeData {
   dish: string;
@@ -9,16 +8,59 @@ interface RecipeData {
   cookTime: string;
 }
 
-// Groq exposes an OpenAI-compatible API, so the OpenAI SDK works unchanged.
-// In client-side Vite apps this requires `dangerouslyAllowBrowser: true`.
-const client = new OpenAI({
-  apiKey: import.meta.env.VITE_GROQ_API_KEY,
-  baseURL: 'https://api.groq.com/openai/v1',
-  dangerouslyAllowBrowser: true,
-});
-
-// Alternatives: 'llama-3.1-8b-instant' (faster, higher rate limits, slightly lower quality)
 const MODEL = 'openai/gpt-oss-20b';
+
+export async function getRecipeInstructions(recipeName: string): Promise<string[]> {
+  const dish = recipeName.trim();
+
+  if (!dish) {
+    return [];
+  }
+
+  try {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        temperature: 0.4,
+        messages: [
+          {
+            role: 'system',
+            content:
+              'You are a professional chef. Generate clear, step-by-step cooking instructions for the dish provided. ' +
+              'Respond ONLY with a JSON object in exactly this shape: {"prepTime":"15 mins","cookTime":"45 mins","instructions":["step1","step2"]}. ' +
+              'Write the instructions in the same language as the dish name.',
+          },
+          {
+            role: 'user',
+            content: `Dish: ${dish}`,
+          },
+        ],
+        response_format: { type: 'json_object' },
+      }),
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => ({}));
+      throw new Error(errorBody?.error?.message || response.statusText);
+    }
+
+    const completion = await response.json();
+    const raw = completion.choices[0]?.message?.content || '{}';
+    const parsed = JSON.parse(raw);
+
+    return Array.isArray(parsed.instructions)
+      ? parsed.instructions.map((step: unknown) => String(step))
+      : [];
+  } catch (error) {
+    console.error('getRecipeInstructions failed:', error);
+    return [];
+  }
+}
 
 export default function RecipeGenerator() {
   const [prompt, setPrompt] = useState('');
@@ -39,29 +81,45 @@ export default function RecipeGenerator() {
     };
 
     try {
-      const completion = await client.chat.completions.create({
-        model: MODEL,
-        temperature: 0.4,
-        messages: [
-          {
-            role: 'system',
-            content:
-              'You are a professional chef. You will be provided a dish name and a list of ingredients. ' +
-              'Generate clear, step-by-step cooking instructions using only those ingredients ' +
-              '(plus standard pantry items like salt, water, or oil if necessary). ' +
-              'Respond ONLY with a JSON object in exactly this shape: ' +
-              '{"prepTime": string (e.g. "15 mins"), "cookTime": string (e.g. "45 mins"), "instructions": string[] (ordered cooking steps)}. ' +
-              'Write the instructions in the same language as the dish name.',
-          },
-          {
-            role: 'user',
-            content: `Dish: ${mockApiData.dish}\nIngredients: ${mockApiData.ingredients}`,
-          },
-        ],
-        // json_object works on all Groq chat models; the shape is enforced via the prompt above.
-        response_format: { type: 'json_object' },
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: MODEL,
+          temperature: 0.4,
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are a professional chef. You will be provided a dish name and a list of ingredients. ' +
+                'Generate clear, step-by-step cooking instructions using only those ingredients ' +
+                '(plus standard pantry items like salt, water, or oil if necessary). ' +
+                'Respond ONLY with a JSON object in exactly this shape: ' +
+                '{"prepTime": string (e.g. "15 mins"), "cookTime": string (e.g. "45 mins"), "instructions": string[] (ordered cooking steps)}. ' +
+                'Write the instructions in the same language as the dish name.',
+            },
+            {
+              role: 'user',
+              content: `Dish: ${mockApiData.dish}\nIngredients: ${mockApiData.ingredients}`,
+            },
+          ],
+          response_format: { type: 'json_object' },
+        }),
       });
 
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        const apiError = new Error(errorBody?.error?.message || response.statusText) as Error & {
+          status?: number;
+        };
+        apiError.status = response.status;
+        throw apiError;
+      }
+
+      const completion = await response.json();
       const raw = completion.choices[0]?.message?.content || '{}';
       const parsed = JSON.parse(raw);
 

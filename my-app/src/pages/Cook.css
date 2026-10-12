@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
+
+:root {
+	--cook-cream: #fffaf0;
+	--cook-pink: #f47d9b;
+	--cook-pink-light: #ffe2e9;
+	--cook-yellow: #ffd966;
+	--cook-teal: #63c9bd;
+	--cook-ink: #352d3a;
+	--cook-muted: #786f79;
+	--cook-card: #ffffff;
+	--cook-shadow: 0 12px 32px rgba(94, 63, 80, 0.11);
+}
+
+.cook-page,
+.cook-container,
+.cook-screen {
+	min-height: 100vh;
+	padding: clamp(1.25rem, 4vw, 3.5rem);
+	color: var(--cook-ink);
+	font-family: 'DM Sans', sans-serif;
+	background-color: var(--cook-cream);
+	background-image:
+		linear-gradient(90deg, rgba(244, 125, 155, 0.075) 50%, transparent 50%),
+		linear-gradient(rgba(244, 125, 155, 0.075) 50%, transparent 50%);
+	background-size: 28px 28px;
+}
+
+.cook-page *,
+.cook-container *,
+.cook-screen * {
+	box-sizing: border-box;
+}
+
+.cook-page h1,
+.cook-container h1,
+.cook-screen h1,
+.cook-title {
+	margin: 0 0 0.65rem;
+	color: var(--cook-ink);
+	font-family: 'Nunito', sans-serif;
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	font-weight: 900;
+	letter-spacing: -0.045em;
+	line-height: 1.08;
+}
+
+.cook-page h2,
+.cook-container h2,
+.cook-screen h2,
+.cook-section-title {
+	color: var(--cook-ink);
+	font-family: 'Nunito', sans-serif;
+	font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+	font-weight: 800;
+}
+
+.cook-page p,
+.cook-container p,
+.cook-screen p {
+	line-height: 1.65;
+}
+
+.cook-header,
+.cook-topbar,
+.recipe-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.25rem;
+	margin: 0 auto 1.5rem;
+	max-width: 1100px;
+}
+
+.cook-layout,
+.cook-content,
+.recipe-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+	gap: clamp(1.25rem, 3vw, 2rem);
+	width: min(1100px, 100%);
+	margin: 0 auto;
+	align-items: start;
+}
+
+.cook-card,
+.recipe-card,
+.ingredients-card,
+.instructions-card,
+.cook-panel {
+	padding: clamp(1.25rem, 3vw, 2rem);
+	border: 2px solid rgba(53, 45, 58, 0.08);
+	border-radius: 24px;
+	background: var(--cook-card);
+	box-shadow: var(--cook-shadow);
+}
+
+.cook-card:nth-child(even),
+.ingredients-card {
+	background-color: #fff;
+	background-image: radial-gradient(rgba(99, 201, 189, 0.22) 1.5px, transparent 1.5px);
+	background-size: 18px 18px;
+}
+
+.recipe-image,
+.cook-image,
+.recipe-card img {
+	display: block;
+	width: 100%;
+	max-height: 360px;
+	object-fit: cover;
+	border: 5px solid #fff;
+	border-radius: 20px;
+	box-shadow: 0 8px 20px rgba(53, 45, 58, 0.12);
+}
+
+.recipe-meta,
+.cook-meta,
+.recipe-details {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin: 1rem 0;
+}
+
+.recipe-meta span,
+.cook-meta span,
+.recipe-details span,
+.cook-tag,
+.recipe-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0.45rem 0.8rem;
+	border-radius: 999px;
+	background: var(--cook-yellow);
+	color: var(--cook-ink);
+	font-size: 0.88rem;
+	font-weight: 700;
+}
+
+.cook-tag,
+.recipe-tag {
+	background: var(--cook-pink-light);
+}
+
+.ingredients-list,
+.cook-page ul,
+.cook-container ul,
+.cook-screen ul {
+	padding-left: 1.35rem;
+}
+
+.ingredients-list li,
+.cook-page li,
+.cook-container li,
+.cook-screen li {
+	padding: 0.35rem 0;
+	line-height: 1.55;
+}
+
+.ingredients-list li::marker {
+	color: var(--cook-pink);
+}
+
+.instructions-list,
+.steps-list {
+	display: grid;
+	gap: 1rem;
+	padding: 0;
+	list-style: none;
+	counter-reset: cook-step;
+}
+
+.instructions-list li,
+.steps-list li {
+	position: relative;
+	padding: 1rem 1rem 1rem 3.5rem;
+	border-radius: 16px;
+	background: #fff7d9;
+	counter-increment: cook-step;
+}
+
+.instructions-list li::before,
+.steps-list li::before {
+	position: absolute;
+	top: 0.8rem;
+	left: 0.8rem;
+	display: grid;
+	width: 2rem;
+	height: 2rem;
+	place-items: center;
+	border-radius: 50%;
+	background: var(--cook-teal);
+	color: #173d3a;
+	content: counter(cook-step);
+	font-family: 'Nunito', sans-serif;
+	font-weight: 900;
+}
+
+.cook-page button,
+.cook-container button,
+.cook-screen button,
+.cook-button,
+.recipe-button {
+	min-height: 44px;
+	padding: 0.7rem 1.15rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--cook-pink);
+	color: #fff;
+	font: 700 0.98rem 'DM Sans', sans-serif;
+	cursor: pointer;
+	transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.cook-page button:hover,
+.cook-container button:hover,
+.cook-screen button:hover,
+.cook-button:hover,
+.recipe-button:hover {
+	transform: translateY(-2px);
+	background: #e96587;
+	box-shadow: 0 7px 16px rgba(233, 101, 135, 0.25);
+}
+
+.cook-page button:focus-visible,
+.cook-container button:focus-visible,
+.cook-screen button:focus-visible,
+.cook-button:focus-visible,
+.recipe-button:focus-visible {
+	outline: 3px solid var(--cook-teal);
+	outline-offset: 3px;
+}
+
+.cook-page input,
+.cook-page textarea,
+.cook-page select,
+.cook-container input,
+.cook-container textarea,
+.cook-container select {
+	width: 100%;
+	padding: 0.8rem 1rem;
+	border: 2px solid #eadde2;
+	border-radius: 14px;
+	background: #fff;
+	color: var(--cook-ink);
+	font: inherit;
+}
+
+.cook-page input:focus,
+.cook-page textarea:focus,
+.cook-page select:focus,
+.cook-container input:focus,
+.cook-container textarea:focus,
+.cook-container select:focus {
+	border-color: var(--cook-teal);
+	outline: 3px solid rgba(99, 201, 189, 0.2);
+}
+
+.cook-empty,
+.cook-error,
+.cook-loading {
+	width: min(700px, 100%);
+	margin: 2rem auto;
+	padding: 1.5rem;
+	border-radius: 20px;
+	background: #fff;
+	box-shadow: var(--cook-shadow);
+	text-align: center;
+}
+
+@media (max-width: 700px) {
+	.cook-page,
+	.cook-container,
+	.cook-screen {
+		padding: 1rem;
+	}
+
+	.cook-layout,
+	.cook-content,
+	.recipe-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.cook-header,
+	.cook-topbar,
+	.recipe-header {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
+
+/* ---- Additions so Cook.tsx works with this stylesheet ---- */
+
+/* The blanket ".cook-page input" rule would stretch checkboxes to 100% width */
+.cook-page input[type='checkbox'] {
+	flex-shrink: 0;
+	width: 1.2rem;
+	height: 1.2rem;
+	padding: 0;
+	accent-color: var(--cook-teal);
+}
+
+.cook-back {
+	display: inline-block;
+	margin-bottom: 1rem;
+	color: var(--cook-pink);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.cook-back:hover {
+	text-decoration: underline;
+}
+
+.cook-subtitle {
+	margin: 0;
+	color: var(--cook-muted);
+}
+
+.cook-picker {
+	width: min(1100px, 100%);
+	margin: 0 auto 1.5rem;
+}
+
+.cook-picker label {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 700;
+}
+
+.cook-selected {
+	width: min(1100px, 100%);
+	margin: 0 auto;
+}
+
+.cook-selected .recipe-meta {
+	margin: 0.5rem 0 1.5rem;
+}
+
+/* Make each step's checkbox + text sit side by side */
+.step-label {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	cursor: pointer;
+}
+
+.instructions-list li.step-done {
+	opacity: 0.55;
+}
+
+.instructions-list li.step-done .step-text {
+	text-decoration: line-through;
+}
+
+.cook-actions {
+	margin-top: 1.25rem;
+}
+
+.cook-error p {
+	color: #c0392b;
+}

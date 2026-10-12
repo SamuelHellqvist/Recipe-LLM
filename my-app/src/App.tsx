@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import RecipesPage from "./pages/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import Cook from "./pages/Cook";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -124,6 +125,14 @@ function App() {
           path="/favorites"
           element={
             user ? <FavoritesPage /> : <Navigate to="/login" replace />
+          }
+        />
+
+        {/* Cook */}
+        <Route
+          path="/cook"
+          element={
+            user ? <Cook /> : <Navigate to="/login" replace />
           }
         />
 

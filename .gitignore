@@ -26,3 +26,4 @@ dist-ssr
 my-app/.env
 my-app/node_modules
 
+my-app/.env
