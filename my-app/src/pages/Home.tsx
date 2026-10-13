@@ -27,6 +27,11 @@ export default function Home() {
   <Link to="/favorites" className="home-nav-btn favorites-btn">
     My Favorites
   </Link>
+
+  <Link to="/cook" className="home-nav-btn cook-btn">
+    Cook
+  </Link>
+
 </div>
 
 

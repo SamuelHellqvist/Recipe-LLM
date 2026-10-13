@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 
 import {
   BrowserRouter,
@@ -5,8 +6,6 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-
-import { useEffect, useState } from "react";
 
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { auth } from "./services/firebase";
@@ -20,10 +19,15 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import RecipesPage from "./pages/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import Cook from "./pages/Cook";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
+
+  
+    
+
 
   useEffect(() => {
 
@@ -121,6 +125,14 @@ function App() {
           path="/favorites"
           element={
             user ? <FavoritesPage /> : <Navigate to="/login" replace />
+          }
+        />
+
+        {/* Cook */}
+        <Route
+          path="/cook"
+          element={
+            user ? <Cook /> : <Navigate to="/login" replace />
           }
         />
 

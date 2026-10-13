@@ -37,5 +37,6 @@ export async function getIngredients(id: number) {
     return []
   }
 
-  return response.json()
+  const data = await response.json();
+  return data.value ?? data;
 }

@@ -28,3 +28,7 @@ my-app/node_modules
 
 backend/.env
 backend/.venv
+my-app/.env
+my-app/.env
+".env" 
+".env" 
