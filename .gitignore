@@ -27,10 +27,10 @@ dist-ssr
 
 my-app/.env
 my-app/node_modules
+my-app/*.env
 
 backend/.env
 backend/.venv
-my-app/.env
-my-app/.env
+backend/__pycache__
 ".env" 
 ".env" 

@@ -14,58 +14,58 @@ export default function Login() {
   // Add error state
   const [error, setError] = useState<string | null>(null);
 
-const login = async () => {
-  try {
-    const result = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+  const login = async () => {
+    try {
+      const result = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-    // Create the Firestore profile if missing
-    await ensureUserProfile(result.user);
+      // Create the Firestore profile if missing
+      await ensureUserProfile(result.user);
 
-    setError(null);
+      setError(null);
 
-  } catch (err: unknown) {
-    console.error("Login/profile error:", err);
+    } catch (err: unknown) {
+      console.error("Login/profile error:", err);
 
-    setError(
-      err instanceof Error
-        ? err.message
-        : "Login failed"
-    );
-  }
-};
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Login failed"
+      );
+    }
+  };
 
 
-const googleLogin = async () => {
-  try {
-    const result = await signInWithPopup(
-      auth,
-      googleProvider
-    );
+  const googleLogin = async () => {
+    try {
+      const result = await signInWithPopup(
+        auth,
+        googleProvider
+      );
 
-    // Create the Firestore profile if missing
-    await ensureUserProfile(result.user);
+      // Create the Firestore profile if missing
+      await ensureUserProfile(result.user);
 
-    setError(null);
+      setError(null);
 
-  } catch (err: unknown) {
-    console.error("Google login/profile error:", err);
+    } catch (err: unknown) {
+      console.error("Google login/profile error:", err);
 
-    setError(
-      err instanceof Error
-        ? err.message
-        : "Google login failed"
-    );
-  }
-};
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Google login failed"
+      );
+    }
+  };
 
   // Add onSubmit handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate inputs
     if (!email.trim() || !password.trim()) {
       setError("Please enter both email and password");
@@ -79,7 +79,7 @@ const googleLogin = async () => {
     <div className="auth-container centered bg-slate-900 text-white">
       {/* Display error */}
       {error && <p className="error">{error}</p>}
-      
+
       <h2>Login</h2>
 
       <input
@@ -102,17 +102,17 @@ const googleLogin = async () => {
 
       {/* Add form wrapper with submit handler */}
       <form onSubmit={handleSubmit}>
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           disabled={!email || !password}
         >Login</button>
       </form>
 
       <div className="divider">OR</div>
 
-      <button 
-        type="button" 
-        className="google-btn" 
+      <button
+        type="button"
+        className="google-btn"
         onClick={googleLogin}
       >
         Sign in with Google
