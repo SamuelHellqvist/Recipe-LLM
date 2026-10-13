@@ -7,6 +7,10 @@ import FavoriteButton from "../components/FavoriteButton";
 import type { Food, Ingredient } from "../types/food";
 import "./RecipesPage.css";
 import { Link } from "react-router-dom";
+import {
+  classifyRecipe,
+  type RecipeClassification,
+} from "../services/llm";
 
 function RecipesPage() {
   const [dishes, setDishes] = useState<Food[]>([]);
@@ -23,6 +27,19 @@ function RecipesPage() {
 
   const requestId = useRef(0);
   const itemsPerPage = 12;
+
+  // Store AI classifications by dish ID
+  const [classifications, setClassifications] = useState<
+    Record<number, RecipeClassification>
+  >({});
+
+  // Track the recipe currently being classified
+  const [classifyingId, setClassifyingId] =
+    useState<number | null>(null);
+
+  // Store classification errors by dish ID
+  const [classificationErrors, setClassificationErrors] =
+    useState<Record<number, string>>({});
 
   // 1. Fetch all dish names from the API
   useEffect(() => {
@@ -117,6 +134,62 @@ function RecipesPage() {
     startIndex + itemsPerPage
   );
 
+
+  async function handleClassification(dish: Food) {
+    // Avoid duplicate requests
+    if (classifyingId !== null) return;
+
+    // Reuse classifications already generated
+    if (classifications[dish.nummer]) return;
+
+    setClassifyingId(dish.nummer);
+
+    setClassificationErrors((prev) => ({
+      ...prev,
+      [dish.nummer]: "",
+    }));
+
+    try {
+      // Fetch ingredients using your existing API
+      const data: Ingredient[] = await getIngredients(
+        dish.nummer
+      );
+
+      // Extract only ingredient names
+      const ingredientNames = data
+        .map((ingredient) => ingredient.namn)
+        .filter(
+          (name): name is string =>
+            typeof name === "string" &&
+            name.trim().length > 0
+        );
+
+      // Send recipe information to the Python backend
+      const result = await classifyRecipe(
+        dish.namn,
+        ingredientNames
+      );
+
+      // Store classification by recipe ID
+      setClassifications((prev) => ({
+        ...prev,
+        [dish.nummer]: result,
+      }));
+
+    } catch (error) {
+      console.error("Classification error:", error);
+
+      setClassificationErrors((prev) => ({
+        ...prev,
+        [dish.nummer]: "Could not classify this recipe.",
+      }));
+
+    } finally {
+      setClassifyingId(null);
+    }
+  }
+
+
   function changePage(page: number) {
     setCurrentPage(page);
     closeDish();
@@ -125,10 +198,10 @@ function RecipesPage() {
   return (
     <main className="recipes-page">
       <header className="recipes-header">
-         <Link to="/" className="favorites-back">
+        <Link to="/" className="favorites-back">
           ← Home
         </Link>
-        
+
         <h1>Explore Recipes</h1>
         <p>Find something delicious to cook today!</p>
       </header>
@@ -178,8 +251,58 @@ function RecipesPage() {
             {currentDishes.map((dish) => (
               <article className="recipe-card" key={dish.nummer}>
                 <h2>{dish.namn}</h2>
-                
+
                 <FavoriteButton dish={dish} />
+
+                {/* AI RECIPE CLASSIFICATION */}
+                <div className="recipe-ai-section">
+                  <button
+                    type="button"
+                    onClick={() => handleClassification(dish)}
+                    disabled={
+                      classifyingId !== null ||
+                      Boolean(classifications[dish.nummer])
+                    }
+                  >
+                    {classifyingId === dish.nummer
+                      ? "Classifying..."
+                      : classifications[dish.nummer]
+                        ? "Classified"
+                        : "Classify with AI"}
+                  </button>
+
+                  {classificationErrors[dish.nummer] && (
+                    <p role="alert">
+                      {classificationErrors[dish.nummer]}
+                    </p>
+                  )}
+
+                  {classifications[dish.nummer] && (
+                    <div className="recipe-ai-results">
+                      <p>
+                        <strong>Cuisine:</strong>{" "}
+                        {classifications[dish.nummer].cuisine}
+                      </p>
+
+                      <p>
+                        <strong>Meal type:</strong>{" "}
+                        {classifications[dish.nummer].meal_type.join(", ")}
+                      </p>
+
+                      <p>
+                        <strong>Main ingredient:</strong>{" "}
+                        {classifications[dish.nummer].main_ingredient}
+                      </p>
+
+                      <p>
+                        <strong>Diet:</strong>{" "}
+                        {classifications[dish.nummer].diet.join(", ") ||
+                          "Not classified as vegetarian or vegan"}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
 
                 {dish.tillagningsmetod && (
                   <p className="recipe-category">
