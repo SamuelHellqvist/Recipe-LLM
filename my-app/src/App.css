@@ -241,11 +241,12 @@
   .home-nav-btn {
     width: 100%;
   }
+}
 /* Boring css for auth-container */
 /* TEMPORÄR - DETTA SKA FLYTTAS TILL SJÄLVA LOGIN/SIGNUP SIDAN SEN */
 /* Auth card */
 .auth-container {
-  background: #771e1e;
+  background: rgba(119, 30, 30, 0.7);
   width: 350px;
   padding: 25px;
   border-radius: 12px;
@@ -255,6 +256,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
   
 }
 
@@ -328,5 +330,4 @@
 
 .auth-container a:hover {
   text-decoration: underline;
-}
 }

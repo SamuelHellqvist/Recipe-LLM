@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FavoriteButton from '../components/FavoriteButton';
 import { getDishes, getIngredients } from '../services/api';
 import {
@@ -12,6 +12,8 @@ import {
 } from '../services/recipes';
 import type { Food, Ingredient } from '../types/food';
 //import './Cook.css';
+
+import "../App.css"
 
 const SHORTLIST_LIMIT = 40;
 
@@ -168,13 +170,15 @@ export default function Brainstorm() {
     findAndLoad(prompt);
   };
 
+  const navigate = useNavigate()
+
   return (
     <main className="cook-page">
       <header className="cook-header">
         <div>
-          <Link to="/" className="cook-back">
+          <button onClick={() => navigate("/")} className="cook-back">
             ← Home
-          </Link>
+          </button>
           <h1 className="cook-title">Brainstorm</h1>
           <p className="cook-subtitle">
             Describe the kind of dish you want and we will find a matching recipe.
