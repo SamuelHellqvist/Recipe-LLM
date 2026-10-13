@@ -32,6 +32,11 @@ export default function Home() {
     Cook
   </Link>
 
+  <Link to="/brainstorm" className="home-nav-btn recipes-btn">
+    Brainstorm
+    <span>→</span>
+  </Link>
+
 </div>
 
 

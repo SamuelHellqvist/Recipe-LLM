@@ -20,6 +20,7 @@ import Signup from "./pages/Signup";
 import RecipesPage from "./pages/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import Cook from "./pages/Cook";
+import Brainstorm from "./pages/Brainstorm";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -133,6 +134,14 @@ function App() {
           path="/cook"
           element={
             user ? <Cook /> : <Navigate to="/login" replace />
+          }
+        />
+
+        {/* Brainstorm */}
+        <Route
+          path="/brainstorm"
+          element={
+            user ? <Brainstorm /> : <Navigate to="/login" replace />
           }
         />
 
