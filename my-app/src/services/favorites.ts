@@ -54,8 +54,10 @@ export async function getFavorites(): Promise<Dish[]> {
   );
 }
 
-
-export async function saveFavorite(dish: Dish) {
+export async function saveFavorite(
+  dish: Dish,
+  generatedInstructions: string
+) {
   const userId = getUserId();
 
   const favoriteRef = doc(
@@ -73,20 +75,15 @@ export async function saveFavorite(dish: Dish) {
     ingredients: dish.ingredients.map((ingredient) => ({
       nummer: ingredient.nummer,
       namn: ingredient.namn,
-      viktForeTillagning:
-        ingredient.viktForeTillagning ?? null,
-      viktEfterTillagning:
-        ingredient.viktEfterTillagning ?? null,
-      tillagningsfaktor:
-        ingredient.tillagningsfaktor ?? null,
+      viktForeTillagning: ingredient.viktForeTillagning ?? null,
+      viktEfterTillagning: ingredient.viktEfterTillagning ?? null,
+      tillagningsfaktor: ingredient.tillagningsfaktor ?? null,
     })),
 
+    instructions: generatedInstructions,
     savedAt: serverTimestamp(),
   });
-
-  console.log("Saved favorite:", favoriteRef.path);
 }
-
 
 // REMOVE FAVORITE
 
@@ -114,8 +111,6 @@ export async function removeFavorite(dish: Food) {
     deleteDoc(numberRef)
   ]);
 }
-
-
 
 // CHECK IF RECIPE IS FAVORITE
 

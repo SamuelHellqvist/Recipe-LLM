@@ -137,6 +137,26 @@ function FavoritesPage() {
                   )}
                 </details>
 
+                {/* recipe instructions */}
+                <details className="favorite-ingredients">
+                  <summary>View Recipe Instructions</summary>
+
+                  {dish.instructions?.trim() ? (
+                    <p className="recipe-instructions">
+                      {dish.instructions}
+                    </p>
+                  ) : (
+                    <p>
+                      No instructions saved for this recipe.{" "}
+                      <Link to={`/brainstorm?name=${encodeURIComponent(dish.namn)}`}>
+                        <button className="brainstorm-button">
+                          Generate instructions in Brainstorm
+                        </button>
+                      </Link>
+                    </p>
+                  )}
+                </details>
+
                 <button
                   type="button"
                   className="favorite-remove-button"
