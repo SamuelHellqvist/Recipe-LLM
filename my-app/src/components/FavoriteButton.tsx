@@ -15,9 +15,11 @@ import type { Food } from "../types/food";
 
 type Props = {
     dish: Food;
+    instructions: string;
+
 };
 
-function FavoriteButton({ dish }: Props) {
+function FavoriteButton({ dish, instructions }: Props) {
     const navigate = useNavigate();
 
     const [saved, setSaved] = useState(false);
@@ -84,7 +86,7 @@ function FavoriteButton({ dish }: Props) {
                 await saveFavorite({
                     ...dish,
                     ingredients,
-                });
+                }, instructions);
 
                 setSaved(true);
             }

@@ -123,3 +123,16 @@
 .favorites-error {
   color: #c53030;
 }
+
+.recipe-instructions {
+  white-space: pre-line;
+}
+
+.brainstorm-button{
+  padding: 12px 22px;
+  background-color: #347e59;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}

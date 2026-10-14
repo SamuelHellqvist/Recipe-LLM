@@ -252,7 +252,9 @@ function RecipesPage() {
               <article className="recipe-card" key={dish.nummer}>
                 <h2>{dish.namn}</h2>
 
-                <FavoriteButton dish={dish} />
+                <FavoriteButton dish={dish} 
+                                instructions=""
+                />
 
                 {/* AI RECIPE CLASSIFICATION */}
                 <div className="recipe-ai-section">

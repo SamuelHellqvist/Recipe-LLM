@@ -35,4 +35,6 @@ export type Food = {
 
 export type Dish = Food & {
   ingredients: Ingredient[];
+  instructions?: string; // Generated instructions from Brainstorm
+
 };

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import FavoriteButton from '../components/FavoriteButton';
 import { getDishes, getIngredients } from '../services/api';
 import {
@@ -16,6 +16,7 @@ import './Cook.css';
 import "../App.css"
 
 const SHORTLIST_LIMIT = 40;
+
 
 function formatIngredient(ingredient: Ingredient): string {
   if (!ingredient.namn) return '';
@@ -55,7 +56,11 @@ function pickDish(dishes: Food[], match: { nummer: number; namn: string }): Food
 }
 
 export default function Brainstorm() {
-  const [prompt, setPrompt] = useState('');
+  const [searchParams] = useSearchParams();
+  const dishName = searchParams.get("name") ?? "";
+
+  const [prompt, setPrompt] = useState(dishName);
+
   const [dishes, setDishes] = useState<Food[]>([]);
   const [catalogLoading, setCatalogLoading] = useState(true);
   const [catalogError, setCatalogError] = useState<string | null>(null);
@@ -235,7 +240,9 @@ export default function Brainstorm() {
         <section className="cook-selected">
           <h2 className="cook-section-title">{matchedDish.namn}</h2>
           {matchReason && <p className="cook-subtitle">{matchReason}</p>}
-          <FavoriteButton dish={matchedDish} />
+          <FavoriteButton dish={matchedDish}
+            instructions={recipe?.instructions.join("\n") ?? ""}
+          />
 
           {recipe && (
             <div className="recipe-meta">
