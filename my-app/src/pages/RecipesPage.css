@@ -98,6 +98,35 @@
   margin: 7px 0;
 }
 
+.recipe-ingredient-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.recipe-ingredient-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.recipe-ingredient-row input {
+  accent-color: #347a55;
+}
+
+.recipe-ingredient-excluded {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.ingredient-preference-note {
+  color: #666;
+  font-size: 13px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;

@@ -2,7 +2,14 @@
 
 
 import { useEffect, useRef, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { getDishes, getIngredients } from "../services/api";
+import { auth } from "../services/firebase";
+import {
+  getDeselectedIngredients,
+  removeDeselectedIngredient,
+  saveDeselectedIngredient,
+} from "../services/deselected-ingridients";
 import FavoriteButton from "../components/FavoriteButton";
 import type { Food, Ingredient } from "../types/food";
 import "./RecipesPage.css";
@@ -24,9 +31,80 @@ function RecipesPage() {
   const [loadingIngredients, setLoadingIngredients] = useState(false);
   const [error, setError] = useState("");
   const [ingredientError, setIngredientError] = useState("");
+  const [authReady, setAuthReady] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [deselectedIngredients, setDeselectedIngredients] = useState<
+    Ingredient[]
+  >([]);
+  const [loadingDeselectedIngredients, setLoadingDeselectedIngredients] =
+    useState(false);
+  const [updatingIngredientNumber, setUpdatingIngredientNumber] = useState<
+    number | null
+  >(null);
+  const [deselectedIngredientError, setDeselectedIngredientError] =
+    useState("");
 
   const requestId = useRef(0);
   const itemsPerPage = 12;
+
+  useEffect(() => {
+    let active = true;
+    let preferenceRequest = 0;
+
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (user) => {
+        const thisRequest = ++preferenceRequest;
+        setUserId(user?.uid ?? null);
+        setAuthReady(true);
+        setDeselectedIngredients([]);
+        setDeselectedIngredientError("");
+
+        if (!user) {
+          setLoadingDeselectedIngredients(false);
+          return;
+        }
+
+        setLoadingDeselectedIngredients(true);
+        void getDeselectedIngredients()
+          .then((savedIngredients) => {
+            if (active && thisRequest === preferenceRequest) {
+              setDeselectedIngredients(savedIngredients);
+            }
+          })
+          .catch((error) => {
+            console.error("Error loading excluded ingredients:", error);
+            if (active && thisRequest === preferenceRequest) {
+              setDeselectedIngredientError(
+                "Could not load your excluded ingredients."
+              );
+            }
+          })
+          .finally(() => {
+            if (active && thisRequest === preferenceRequest) {
+              setLoadingDeselectedIngredients(false);
+            }
+          });
+      },
+      (error) => {
+        ++preferenceRequest;
+        console.error("Error checking authentication:", error);
+        setUserId(null);
+        setAuthReady(true);
+        setDeselectedIngredients([]);
+        setLoadingDeselectedIngredients(false);
+        setDeselectedIngredientError(
+          "Could not check your sign-in status."
+        );
+      }
+    );
+
+    return () => {
+      active = false;
+      ++preferenceRequest;
+      unsubscribe();
+    };
+  }, []);
 
   // Store AI classifications by dish ID
   const [classifications, setClassifications] = useState<
@@ -111,6 +189,43 @@ function RecipesPage() {
       if (thisRequest === requestId.current) {
         setLoadingIngredients(false);
       }
+    }
+  }
+
+  async function toggleIngredient(ingredient: Ingredient) {
+    if (!userId || updatingIngredientNumber !== null) return;
+
+    const isDeselected = deselectedIngredients.some(
+      (savedIngredient) => savedIngredient.nummer === ingredient.nummer
+    );
+
+    setUpdatingIngredientNumber(ingredient.nummer);
+    setDeselectedIngredientError("");
+
+    try {
+      if (isDeselected) {
+        await removeDeselectedIngredient(ingredient);
+        setDeselectedIngredients((current) =>
+          current.filter(
+            (savedIngredient) => savedIngredient.nummer !== ingredient.nummer
+          )
+        );
+      } else {
+        await saveDeselectedIngredient(ingredient);
+        setDeselectedIngredients((current) => [
+          ...current.filter(
+            (savedIngredient) => savedIngredient.nummer !== ingredient.nummer
+          ),
+          ingredient,
+        ]);
+      }
+    } catch (error) {
+      console.error("Error updating excluded ingredient:", error);
+      setDeselectedIngredientError(
+        "Could not update this ingredient. Please try again."
+      );
+    } finally {
+      setUpdatingIngredientNumber(null);
     }
   }
 
@@ -330,17 +445,64 @@ function RecipesPage() {
                     ) : ingredients.length === 0 ? (
                       <p>No ingredients available.</p>
                     ) : (
-                      <ul>
-                        {ingredients.map((ingredient, index) => (
-                          <li key={`${ingredient.nummer}-${index}`}>
-                            {ingredient.namn ?? "Unknown ingredient"}
-
-                            {ingredient.viktForeTillagning != null
-                              ? ` - ${ingredient.viktForeTillagning} g`
-                              : ""}
-                          </li>
-                        ))}
-                      </ul>
+                      <>
+                        {authReady && !userId && (
+                          <p className="ingredient-preference-note">
+                            Sign in to save ingredients you want to exclude.
+                          </p>
+                        )}
+                        {loadingDeselectedIngredients && (
+                          <p>Loading your ingredient preferences...</p>
+                        )}
+                        {deselectedIngredientError && (
+                          <p role="alert">{deselectedIngredientError}</p>
+                        )}
+                        <ul>
+                          {ingredients.map((ingredient, index) => (
+                            <li
+                              className="recipe-ingredient-row"
+                              key={`${ingredient.nummer}-${index}`}
+                            >
+                              <span
+                                className={
+                                  deselectedIngredients.some(
+                                    (savedIngredient) =>
+                                      savedIngredient.nummer ===
+                                      ingredient.nummer
+                                  )
+                                    ? "recipe-ingredient-excluded"
+                                    : undefined
+                                }
+                              >
+                                {ingredient.namn ?? "Unknown ingredient"}
+                                {ingredient.viktForeTillagning != null
+                                  ? ` - ${ingredient.viktForeTillagning} g`
+                                  : ""}
+                              </span>
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  checked={
+                                    !deselectedIngredients.some(
+                                      (savedIngredient) =>
+                                        savedIngredient.nummer ===
+                                        ingredient.nummer
+                                    )
+                                  }
+                                  onChange={() => toggleIngredient(ingredient)}
+                                  disabled={
+                                    !authReady ||
+                                    !userId ||
+                                    loadingDeselectedIngredients ||
+                                    updatingIngredientNumber !== null
+                                  }
+                                />
+                                Include
+                              </label>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
                     )}
                   </div>
                 )}

@@ -4,6 +4,10 @@ import { auth, db } from "../services/firebase";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getUserData } from "../services/api"
+import {
+  getSubstitutionList,
+  saveSubstitutionList,
+} from "../services/substitutions";
 
 async function fetchTest() {
   let uid = "XtFiQeeOUgXGcoNUU3ER";
@@ -21,85 +25,134 @@ async function fetchTest() {
 export default function Home() {
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const [substitutions, setSubstitutions] = useState<string[]>([]);
+  const [substitutionsLoading, setSubstitutionsLoading] = useState(false);
+  const [savingSubstitutions, setSavingSubstitutions] = useState(false);
+  const [substitutionError, setSubstitutionError] = useState("");
   const navigate = useNavigate();
 
-  // Load substitutions from localStorage on mount
-  useEffect(() => {
-    const savedSubs = localStorage.getItem('substitutionList');
-    if (savedSubs) {
-      try {
-        setSubstitutions(JSON.parse(savedSubs));
-      } catch (e) {
-        console.error("Failed to parse substitutions from localStorage");
-      }
-    }
-  }, []);
+  const updateSubstitutions = async (items: string[]) => {
+    if (!currentUserId || savingSubstitutions) return;
 
-  // Save substitutions to localStorage whenever they change
-  useEffect(() => {
-    if (substitutions.length > 0) {
-      localStorage.setItem('substitutionList', JSON.stringify(substitutions));
-    } else {
-      localStorage.removeItem('substitutionList');
-    }
-  }, [substitutions]);
+    setSavingSubstitutions(true);
+    setSubstitutionError("");
 
-  // Add a new item to the substitutions list
+    try {
+      await saveSubstitutionList(currentUserId, items);
+      setSubstitutions(items);
+    } catch (error) {
+      console.error("Error saving substitution list:", error);
+      setSubstitutionError("Could not save your substitution list. Please try again.");
+    } finally {
+      setSavingSubstitutions(false);
+    }
+  };
+
   const addItem = (item: string) => {
-    if (item.trim() && !substitutions.includes(item.trim())) {
-      setSubstitutions([...substitutions, item.trim()]);
+    const trimmedItem = item.trim();
+    if (trimmedItem && !substitutions.includes(trimmedItem)) {
+      void updateSubstitutions([...substitutions, trimmedItem]);
     }
   };
 
-  // Remove an item from the substitutions list
   const removeItem = (indexToRemove: number) => {
-    setSubstitutions(substitutions.filter((_, index) => index !== indexToRemove));
+    void updateSubstitutions(
+      substitutions.filter((_, index) => index !== indexToRemove)
+    );
   };
 
-  // Clear all substitutions
   const clearAll = () => {
     if (window.confirm("Remove all items from your substitution list?")) {
-      setSubstitutions([]);
-      localStorage.removeItem('substitutionList');
+      void updateSubstitutions([]);
     }
   };
 
   useEffect(() => {
+    let active = true;
+    let authRequest = 0;
+
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+      const thisRequest = ++authRequest;
       if (!currentUser) {
-        // User is signed out - redirect to home with clean state
         setUserData(null);
+        setCurrentUserId(null);
+        setSubstitutions([]);
+        setSubstitutionsLoading(false);
+        setSubstitutionError("");
         setLoading(false);
         return;
       }
 
+      setCurrentUserId(currentUser.uid);
+      setSubstitutions([]);
+      setSubstitutionsLoading(true);
+      setSubstitutionError("");
+      setLoading(true);
+
       try {
-        // Get user document from Firestore
         const userRef = doc(db, "users", currentUser.uid);
         const userDoc = await getDoc(userRef);
 
-        console.log(userRef)
-        console.log(currentUser.uid)
+        if (!active || thisRequest !== authRequest) return;
 
         if (userDoc.exists()) {
           const data = userDoc.data();
           setUserData({ ...data, uid: userDoc.id });
           console.log("✅ Welcome! User data loaded from Firestore:", data);
         } else {
-          // This shouldn't happen, but handle it gracefully
+          setUserData(null);
           console.warn("⚠️ User not found in Firestore collection");
-          // navigate("/login", { replace: true });
         }
       } catch (err) {
         console.error("Error loading user data:", err);
-        // setError("Failed to load user profile");
+      }
+
+      try {
+        let savedSubstitutions = await getSubstitutionList(currentUser.uid);
+
+        if (savedSubstitutions === null) {
+          const legacyValue = localStorage.getItem("substitutionList");
+
+          if (legacyValue === null) {
+            savedSubstitutions = [];
+          } else {
+            const parsedValue: unknown = JSON.parse(legacyValue);
+            if (
+              !Array.isArray(parsedValue) ||
+              !parsedValue.every((item) => typeof item === "string")
+            ) {
+              throw new Error("Saved browser substitution list is invalid.");
+            }
+
+            savedSubstitutions = parsedValue;
+          }
+
+          await saveSubstitutionList(currentUser.uid, savedSubstitutions);
+          localStorage.removeItem("substitutionList");
+        }
+
+        if (active && thisRequest === authRequest) {
+          setSubstitutions(savedSubstitutions);
+        }
+      } catch (err) {
+        console.error("Error loading substitution list:", err);
+        if (active && thisRequest === authRequest) {
+          setSubstitutionError("Could not load your substitution list.");
+        }
       } finally {
-        setLoading(false);
+        if (active && thisRequest === authRequest) {
+          setSubstitutionsLoading(false);
+          setLoading(false);
+        }
       }
     });
 
-    return () => unsubscribe();
+    return () => {
+      active = false;
+      ++authRequest;
+      unsubscribe();
+    };
   }, [navigate]);
 
   const handleLogout = async () => {
@@ -220,12 +273,29 @@ export default function Home() {
               {substitutions.length > 0 && (
                 <button 
                   onClick={clearAll}
+                  disabled={savingSubstitutions || substitutionsLoading}
                   className="text-sm text-slate-400 hover:text-red-400 transition-colors"
                 >
                   Clear All
                 </button>
               )}
             </div>
+
+            {substitutionsLoading && (
+              <p className="text-slate-400 text-sm mb-3">
+                Loading your saved substitution list...
+              </p>
+            )}
+            {savingSubstitutions && (
+              <p className="text-slate-400 text-sm mb-3">
+                Saving substitution list...
+              </p>
+            )}
+            {substitutionError && (
+              <p className="text-red-400 text-sm mb-3" role="alert">
+                {substitutionError}
+              </p>
+            )}
             
             {/* Input Field */}
             {userData && (
@@ -235,6 +305,7 @@ export default function Home() {
                   placeholder="Add a food item (e.g., 'chicken', 'milk')..."
                   className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2.5 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   maxLength={50}
+                  disabled={substitutionsLoading || savingSubstitutions}
                   onKeyPress={(e) => {
                     if (e.key === 'Enter') {
                       addItem(e.currentTarget.value);
@@ -257,6 +328,7 @@ export default function Home() {
                   </span>
                   <button
                     onClick={() => removeItem(index)}
+                    disabled={savingSubstitutions || substitutionsLoading}
                     className="w-7 h-7 flex items-center justify-center bg-slate-600 hover:bg-red-500 rounded-full text-slate-300 hover:text-white transition-all duration-200 opacity-70 group-hover:opacity-100"
                     aria-label={`Remove ${item}`}
                   >
