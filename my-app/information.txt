@@ -1,0 +1,6 @@
+This project was developed as part of the course TNM114 at Linköping University in October 2026.
+
+Tech stack
+
+Food data: Nutritional data is retrieved from the Swedish Food Agency’s food database, Livsmedelsdatabasen (Livsmedelsverket).
+Language model: The project uses OpenAI’s open-weight model openai/gpt-oss-20b, accessed through the Groq API.
