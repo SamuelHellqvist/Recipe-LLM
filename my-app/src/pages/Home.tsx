@@ -21,7 +21,49 @@ async function fetchTest() {
 export default function Home() {
   const [userData, setUserData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [substitutions, setSubstitutions] = useState<string[]>([]);
   const navigate = useNavigate();
+
+  // Load substitutions from localStorage on mount
+  useEffect(() => {
+    const savedSubs = localStorage.getItem('substitutionList');
+    if (savedSubs) {
+      try {
+        setSubstitutions(JSON.parse(savedSubs));
+      } catch (e) {
+        console.error("Failed to parse substitutions from localStorage");
+      }
+    }
+  }, []);
+
+  // Save substitutions to localStorage whenever they change
+  useEffect(() => {
+    if (substitutions.length > 0) {
+      localStorage.setItem('substitutionList', JSON.stringify(substitutions));
+    } else {
+      localStorage.removeItem('substitutionList');
+    }
+  }, [substitutions]);
+
+  // Add a new item to the substitutions list
+  const addItem = (item: string) => {
+    if (item.trim() && !substitutions.includes(item.trim())) {
+      setSubstitutions([...substitutions, item.trim()]);
+    }
+  };
+
+  // Remove an item from the substitutions list
+  const removeItem = (indexToRemove: number) => {
+    setSubstitutions(substitutions.filter((_, index) => index !== indexToRemove));
+  };
+
+  // Clear all substitutions
+  const clearAll = () => {
+    if (window.confirm("Remove all items from your substitution list?")) {
+      setSubstitutions([]);
+      localStorage.removeItem('substitutionList');
+    }
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
@@ -92,47 +134,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-900 text-white">
       {/* User Info Header */}
-      {userData && (
-        <div className="auth-container mb-8">
-          <h1>Welcome 🎉</h1>
-
-          <h2 className="">
-            {userData.displayName}
-          </h2>
-
-          <p className="user-email">
-            {auth.currentUser?.email}
-          </p>
-
-          <button onClick={() => signOut(auth)}>
-            Logout
-          </button>
-
-          <div className="home-navigation">
-            <button onClick={() => navigate("/recipes")} className="home-nav-btn">
-              Explore Recipes
-              <span>→</span>
-            </button>
-
-            <button onClick={() => navigate("/favorites")} className="home-nav-btn bg-cyan-500">
-              My Favorites
-              <span>→</span>
-            </button>
-
-            <button onClick={() => navigate("/cook")} className="home-nav-btn bg-cyan-500">
-              Cook
-              <span>→</span>
-            </button>
-
-            <button onClick={() => navigate("/brainstorm")} className="home-nav-btn bg-cyan-500">
-              Brainstorm
-              <span>→</span>
-            </button>
-
-          </div>
-        </div>
-
-      )}
+      {/* {userData && ()} */}
       {/* Bento Grid Layout - Mobile Optimized */}
       <section className="container px-4 py-4">
         {/* <h2 className="text-4xl font-bold mb-12 text-center">Welcome to Our App</h2> */}
@@ -147,12 +149,50 @@ export default function Home() {
             <h3 className="text-xl font-bold mb-3 text-blue-400">Vertical rectangle card</h3>
             {userData && (
               <>
+                <h1>Welcome 🎉</h1>
+
+                <h2 className="">
+                  {userData.displayName}
+                </h2>
+                
                 <p className="text-sm text-slate-300 mt-2">
                   <span className="font-semibold">Role:</span> {userData.role || "User"}
                 </p>
                 <p className="text-sm text-slate-400 mt-1">
                   Member since: {new Date(userData.createdAt?.toDate ? userData.createdAt.toDate() : userData.createdAt).toLocaleDateString()}
                 </p>
+
+                {/* <p className="text-xs">
+                  {userData.email}
+                </p> */}
+
+                {/* <button onClick={() => signOut(auth)}>
+                    Logout
+                  </button> */}
+
+                <button onClick={() => navigate("/recipes")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                  Explore Recipes
+                  <span>→</span>
+                </button>
+
+                <button onClick={() => navigate("/favorites")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                  My Favorites
+                  <span>→</span>
+                </button>
+                
+                <button onClick={() => navigate("/brainstorm")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                  Brainstorm
+                  <span>→</span>
+                </button>
+
+                <button onClick={() => navigate("/cook")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                  Cook
+                  <span>→</span>
+                </button>
+
+
+
+
               </>
             )}
           </div>
@@ -172,16 +212,70 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Row 2: Square */}
+          {/* Row 2: Substitution List */}
           <div className="col-span-full md:col-span-2 
                  aspect-ratio-2/1 bg-slate-800 rounded-xl p-4">
-            <h3 className="text-2xl font-bold mb-3 text-purple-400">🎨 Beautiful Design</h3>
-            <p className="text-slate-400 leading-relaxed">
-              Clean, modern aesthetics powered by TailwindCSS utilities.
-            </p>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-xl font-bold text-purple-400">Substitution list</h3>
+              {substitutions.length > 0 && (
+                <button 
+                  onClick={clearAll}
+                  className="text-sm text-slate-400 hover:text-red-400 transition-colors"
+                >
+                  Clear All
+                </button>
+              )}
+            </div>
             
-          </div>
+            {/* Input Field */}
+            {userData && (
+              <div className="mb-3">
+                <input
+                  type="text"
+                  placeholder="Add a food item (e.g., 'chicken', 'milk')..."
+                  className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2.5 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  maxLength={50}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                      addItem(e.currentTarget.value);
+                      e.currentTarget.value = '';
+                    }
+                  }}
+                />
+              </div>
+            )}
 
+            {/* Items List */}
+            <ul className="space-y-2">
+              {substitutions.map((item, index) => (
+                <li 
+                  key={index} 
+                  className="flex items-center justify-between bg-slate-700/50 border border-slate-600/50 rounded-lg p-3 group hover:border-purple-500/30 transition-all duration-200"
+                >
+                  <span className="text-white flex-1 truncate pr-2">
+                    {item}
+                  </span>
+                  <button
+                    onClick={() => removeItem(index)}
+                    className="w-7 h-7 flex items-center justify-center bg-slate-600 hover:bg-red-500 rounded-full text-slate-300 hover:text-white transition-all duration-200 opacity-70 group-hover:opacity-100"
+                    aria-label={`Remove ${item}`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            {/* Empty State */}
+            {substitutions.length === 0 && (
+              <p className="text-slate-400 text-center text-sm mt-2">
+                No items added yet. Type above to add your first substitution!
+              </p>
+            )}
+          </div>
 
 
         </div>

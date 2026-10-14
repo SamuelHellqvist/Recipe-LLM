@@ -21,6 +21,7 @@ import RecipesPage from "./pages/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import Cook from "./pages/Cook";
 import Brainstorm from "./pages/Brainstorm";
+import Profile from "./pages/Profile"
 
 
 function App() {
@@ -156,6 +157,12 @@ function App() {
             />
           }
         />
+
+        <Route path="/profile" element={
+          user ? <Profile /> : <Navigate to="/login" replace />
+        }
+        />
+
 
       </Routes>
     </BrowserRouter>

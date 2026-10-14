@@ -3,7 +3,7 @@ import { type User } from 'firebase/auth';
 import { updateProfile, updatePassword } from 'firebase/auth';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { auth } from '../services/firebase';
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Profile() {
   const [user, setUser] = useState<User | null>(null);
@@ -12,6 +12,8 @@ export default function Profile() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (auth.currentUser) {
@@ -66,8 +68,9 @@ export default function Profile() {
       setDisplayName(user.displayName || '');
       setPhoneNumber(user.phoneNumber || '');
     }
-    // if "cancel" is pressed, send user back to home
-    <Navigate to="/"/>;
+    
+    navigate("/")
+
   };
 
   if (!user) {
@@ -117,7 +120,7 @@ export default function Profile() {
           </div>
 
           {/* Phone Number */}
-          <div>
+          {/* <div>
             <label className="block text-sm font-medium mb-2">Phone Number</label>
             <input
               type="tel"
@@ -126,7 +129,7 @@ export default function Profile() {
               placeholder="+1 (555) 000-0000"
               className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-          </div>
+          </div> */}
 
           {/* Action Buttons */}
           <div className="flex gap-4 pt-4">
