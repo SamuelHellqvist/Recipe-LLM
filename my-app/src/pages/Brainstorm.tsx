@@ -1,7 +1,14 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../services/firebase';
 import FavoriteButton from '../components/FavoriteButton';
 import { getDishes, getIngredients } from '../services/api';
+import {
+  getIngredientReplacementGroups,
+  loadBrainstormPreferences,
+  type IngredientReplacementGroup,
+} from '../services/brainstorm-substitution-buffer';
 import {
   describeRecipeError,
   extractSearchKeywords,
@@ -23,6 +30,27 @@ function formatIngredient(ingredient: Ingredient): string {
   return ingredient.viktForeTillagning != null
     ? `${ingredient.namn} - ${ingredient.viktForeTillagning} g`
     : ingredient.namn;
+}
+
+function formatIngredients(
+  ingredientData: Ingredient[],
+  replacementGroups: IngredientReplacementGroup[],
+  replacementChoices: Record<number, string>
+): string[] {
+  return ingredientData
+    .map((ingredient) => {
+      const group = replacementGroups.find(
+        (candidate) => candidate.ingredient.nummer === ingredient.nummer
+      );
+      const replacement = group?.replacements.find(
+        (candidate) => candidate.name === replacementChoices[ingredient.nummer]
+      );
+
+      return replacement
+        ? `${replacement.name} instead of ${ingredient.namn} (${replacement.ratio})`
+        : formatIngredient(ingredient);
+    })
+    .filter(Boolean);
 }
 
 function filterDishes(dishes: Food[], keywords: string[]): Food[] {
@@ -71,11 +99,94 @@ export default function Brainstorm() {
 
   const [matchedDish, setMatchedDish] = useState<Food | null>(null);
   const [matchReason, setMatchReason] = useState('');
-  const [ingredients, setIngredients] = useState<string[]>([]);
+  const [ingredientData, setIngredientData] = useState<Ingredient[]>([]);
+  const [replacementGroups, setReplacementGroups] = useState<
+    IngredientReplacementGroup[]
+  >([]);
+  const [replacementChoices, setReplacementChoices] = useState<
+    Record<number, string>
+  >({});
+  const [deselectedLoading, setDeselectedLoading] = useState(true);
+  const [deselectedError, setDeselectedError] = useState<string | null>(null);
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const [recipe, setRecipe] = useState<GeneratedRecipe | null>(null);
   const [done, setDone] = useState<Record<number, boolean>>({});
+  const [pendingReplacements, setPendingReplacements] = useState(false);
+  const [deselectedIngredients, setDeselectedIngredients] = useState<
+    Ingredient[]
+  >([]);
+  const [userSubstitutions, setUserSubstitutions] = useState<string[]>([]);
 
   const requestId = useRef(0);
+
+  const allReplacementsChosen = replacementGroups.every(
+    (group) =>
+      group.replacements.length === 1 ||
+      Boolean(replacementChoices[group.ingredient.nummer])
+  );
+
+  useEffect(() => {
+    let active = true;
+    let currentRequest = 0;
+
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      async (user) => {
+        const thisRequest = ++currentRequest;
+        ++requestId.current;
+        setIsSignedIn(Boolean(user));
+        setDeselectedLoading(true);
+        setDeselectedError(null);
+        setDeselectedIngredients([]);
+        setUserSubstitutions([]);
+        setMatchedDish(null);
+        setIngredientData([]);
+        setReplacementGroups([]);
+        setReplacementChoices({});
+        setPendingReplacements(false);
+        setRecipe(null);
+        setDone({});
+
+        if (!user) {
+          setDeselectedLoading(false);
+          return;
+        }
+
+        try {
+          const preferences = await loadBrainstormPreferences(user.uid);
+          if (active && thisRequest === currentRequest) {
+            setDeselectedIngredients(preferences.deselected);
+            setUserSubstitutions(preferences.substitutions);
+          }
+        } catch (err) {
+          console.error('Failed to load deselected ingredients:', err);
+          if (active && thisRequest === currentRequest) {
+            setDeselectedError(
+              'Could not load your excluded ingredients. Sign in again and retry.'
+            );
+          }
+        } finally {
+          if (active && thisRequest === currentRequest) {
+            setDeselectedLoading(false);
+          }
+        }
+      },
+      (err) => {
+        ++currentRequest;
+        console.error('Failed to check sign-in status:', err);
+        if (active) {
+          setDeselectedError('Could not check your sign-in status.');
+          setDeselectedLoading(false);
+        }
+      }
+    );
+
+    return () => {
+      active = false;
+      ++currentRequest;
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -122,15 +233,18 @@ export default function Brainstorm() {
 
   const findAndLoad = async (dishPrompt: string) => {
     const text = dishPrompt.trim();
-    if (!text) return;
+    if (!text || deselectedLoading || deselectedError) return;
 
     const thisRequest = ++requestId.current;
     setFinding(true);
     setGenerating(false);
+    setPendingReplacements(false);
     setError(null);
     setMatchedDish(null);
     setMatchReason('');
-    setIngredients([]);
+    setIngredientData([]);
+    setReplacementGroups([]);
+    setReplacementChoices({});
     setRecipe(null);
     setDone({});
 
@@ -153,13 +267,41 @@ export default function Brainstorm() {
       const ingredientData = await getIngredients(dish.nummer);
       if (thisRequest !== requestId.current) return;
 
-      const ingredientLines = ingredientData.map(formatIngredient).filter(Boolean);
+      const replacementGroups =
+        deselectedIngredients.length > 0 || userSubstitutions.length > 0
+          ? await getIngredientReplacementGroups(
+              dish.namn,
+              ingredientData,
+              deselectedIngredients,
+              userSubstitutions
+            )
+          : [];
+      if (thisRequest !== requestId.current) return;
+
+      const initialChoices: Record<number, string> = {};
+      for (const group of replacementGroups) {
+        if (group.replacements.length === 1) {
+          initialChoices[group.ingredient.nummer] = group.replacements[0].name;
+        }
+      }
 
       setMatchedDish(dish);
       setMatchReason(match.reason);
-      setIngredients(ingredientLines);
+      setIngredientData(ingredientData);
+      setReplacementGroups(replacementGroups);
+      setReplacementChoices(initialChoices);
       setFinding(false);
-      await loadInstructions(dish, ingredientLines, thisRequest);
+
+      if (replacementGroups.some((group) => group.replacements.length > 1)) {
+        setPendingReplacements(true);
+        return;
+      }
+
+      await loadInstructions(
+        dish,
+        formatIngredients(ingredientData, replacementGroups, initialChoices),
+        thisRequest
+      );
     } catch (err) {
       console.error('Brainstorm search failed:', err);
       if (thisRequest !== requestId.current) return;
@@ -171,8 +313,30 @@ export default function Brainstorm() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (finding || generating || catalogLoading) return;
+    if (
+      finding ||
+      generating ||
+      catalogLoading ||
+      deselectedLoading ||
+      deselectedError
+    ) {
+      return;
+    }
     findAndLoad(prompt);
+  };
+
+  const generateWithChosenReplacements = () => {
+    if (!matchedDish || !allReplacementsChosen || finding || generating) return;
+
+    setPendingReplacements(false);
+    setRecipe(null);
+    setError(null);
+    setDone({});
+    void loadInstructions(
+      matchedDish,
+      formatIngredients(ingredientData, replacementGroups, replacementChoices),
+      requestId.current
+    );
   };
 
   const navigate = useNavigate()
@@ -193,6 +357,20 @@ export default function Brainstorm() {
 
       <form className="cook-picker cook-card" onSubmit={handleSubmit}>
         <label htmlFor="dish-type">What type of dish do you want?</label>
+        {deselectedLoading && <p>Loading your excluded ingredients...</p>}
+        {!deselectedLoading && !isSignedIn && (
+          <p>Sign in to apply your saved excluded ingredients.</p>
+        )}
+        {!deselectedLoading && userSubstitutions.length > 0 && (
+          <p>
+            Avoiding: {userSubstitutions.join(', ')}
+          </p>
+        )}
+        {deselectedError && (
+          <p className="cook-error-text" role="alert">
+            {deselectedError}
+          </p>
+        )}
         <input
           id="dish-type"
           type="text"
@@ -203,7 +381,16 @@ export default function Brainstorm() {
           required
         />
         <div className="cook-actions">
-          <button type="submit" disabled={finding || generating || catalogLoading}>
+          <button
+            type="submit"
+            disabled={
+              finding ||
+              generating ||
+              catalogLoading ||
+              deselectedLoading ||
+              Boolean(deselectedError)
+            }
+          >
             {finding || generating ? 'Working...' : 'Find recipe'}
           </button>
         </div>
@@ -286,7 +473,15 @@ export default function Brainstorm() {
                         setError(null);
                         setRecipe(null);
                         setDone({});
-                        loadInstructions(matchedDish, ingredients, thisRequest);
+                        loadInstructions(
+                          matchedDish,
+                          formatIngredients(
+                            ingredientData,
+                            replacementGroups,
+                            replacementChoices
+                          ),
+                          thisRequest
+                        );
                       }}
                     >
                       Regenerate
@@ -298,14 +493,92 @@ export default function Brainstorm() {
 
             <aside className="ingredients-card">
               <h2 className="cook-section-title">Ingredients</h2>
-              {ingredients.length > 0 ? (
+              {ingredientData.length > 0 ? (
                 <ul className="ingredients-list">
-                  {ingredients.map((ing, i) => (
-                    <li key={`${ing}-${i}`}>{ing}</li>
-                  ))}
+                  {ingredientData.map((ingredient, index) => {
+                    const group = replacementGroups.find(
+                      (candidate) =>
+                        candidate.ingredient.nummer === ingredient.nummer
+                    );
+                    const chosenReplacement = group?.replacements.find(
+                      (replacement) =>
+                        replacement.name ===
+                        replacementChoices[ingredient.nummer]
+                    );
+
+                    return (
+                      <li key={`${ingredient.nummer}-${index}`}>
+                        {group ? (
+                          <>
+                            <s>{formatIngredient(ingredient)}</s>
+                            {chosenReplacement ? (
+                              <p>
+                                <strong>{chosenReplacement.name}</strong>
+                                {` — ${chosenReplacement.ratio}`}
+                                {chosenReplacement.note
+                                  ? ` (${chosenReplacement.note})`
+                                  : ''}
+                                <small>
+                                  {chosenReplacement.source === 'catalog'
+                                    ? ' From substitution catalog'
+                                    : ' AI suggestion'}
+                                </small>
+                              </p>
+                            ) : (
+                              <p className="cook-error-text">
+                                Choose a replacement before generating the recipe.
+                              </p>
+                            )}
+                            {group.replacements.length > 1 && (
+                              <label>
+                                Choose a replacement for {ingredient.namn}
+                                <select
+                                  value={
+                                    replacementChoices[ingredient.nummer] ?? ''
+                                  }
+                                  onChange={(event) =>
+                                    setReplacementChoices((current) => ({
+                                      ...current,
+                                      [ingredient.nummer]: event.target.value,
+                                    }))
+                                  }
+                                >
+                                  <option value="" disabled>
+                                    Select a replacement
+                                  </option>
+                                  {group.replacements.map((replacement) => (
+                                    <option
+                                      key={replacement.name}
+                                      value={replacement.name}
+                                    >
+                                      {replacement.name}
+                                    </option>
+                                  ))}
+                                </select>
+                              </label>
+                            )}
+                          </>
+                        ) : (
+                          formatIngredient(ingredient)
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               ) : (
                 <p>No ingredients listed for this recipe.</p>
+              )}
+              {pendingReplacements && (
+                <div className="cook-actions">
+                  <p>Choose a replacement for each excluded ingredient.</p>
+                  <button
+                    type="button"
+                    disabled={!allReplacementsChosen || generating}
+                    onClick={generateWithChosenReplacements}
+                  >
+                    Generate recipe with replacements
+                  </button>
+                </div>
               )}
             </aside>
           </div>
