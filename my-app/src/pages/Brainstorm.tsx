@@ -11,7 +11,7 @@ import {
   type RecipeCandidate,
 } from '../services/recipes';
 import type { Food, Ingredient } from '../types/food';
-//import './Cook.css';
+import './Cook.css';
 
 import "../App.css"
 

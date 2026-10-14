@@ -33,7 +33,7 @@ export async function getRecipeInstructions(recipeName: string): Promise<string[
             content:
               'You are a professional chef. Generate clear, step-by-step cooking instructions for the dish provided. ' +
               'Respond ONLY with a JSON object in exactly this shape: {"prepTime":"15 mins","cookTime":"45 mins","instructions":["step1","step2"]}. ' +
-              'Write the instructions in the same language as the dish name.',
+              'Write the instructions in english.'
           },
           {
             role: 'user',
