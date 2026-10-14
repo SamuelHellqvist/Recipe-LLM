@@ -89,7 +89,7 @@ export default function Cook() {
   const load = async (target: FavoriteRecipe, force = false) => {
     setDone({});
     setGenError(null);
-
+    console.log(selected);
     if (!force && cache[target.id]) {
       setRecipe(cache[target.id]);
       return;
@@ -170,8 +170,9 @@ export default function Cook() {
           </select>
         </div>
       )}
-
+      
       {selected && (
+        
         <section className="cook-selected">
           <h2 className="cook-section-title">{selected.name}</h2>
 
@@ -183,6 +184,19 @@ export default function Cook() {
           )}
 
           <div className="cook-layout">
+            {/* Right: ingredients (available immediately, no need to wait for the AI) */}
+            <div className="ingredients-card">
+              <h2 className="cook-section-title">Ingredients</h2>
+              {selected.ingredients.length > 0 ? (
+                <ul className="ingredients-list">
+                  {selected.ingredients.map((ing, i) => (
+                    <li key={`${ing}-${i}`}>{ing}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No ingredients saved for this recipe.</p>
+              )}
+            </div>
             {/* Left: instructions */}
             <div className="instructions-card">
               <h2 className="cook-section-title">Instructions</h2>
@@ -227,19 +241,6 @@ export default function Cook() {
               )}
             </div>
 
-            {/* Right: ingredients (available immediately, no need to wait for the AI) */}
-            <aside className="ingredients-card">
-              <h2 className="cook-section-title">Ingredients</h2>
-              {selected.ingredients.length > 0 ? (
-                <ul className="ingredients-list">
-                  {selected.ingredients.map((ing, i) => (
-                    <li key={`${ing}-${i}`}>{ing}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No ingredients saved for this recipe.</p>
-              )}
-            </aside>
           </div>
         </section>
       )}

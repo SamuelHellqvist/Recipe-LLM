@@ -223,22 +223,22 @@ export default function Home() {
                     Logout
                   </button> */}
 
-                <button onClick={() => navigate("/recipes")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                <button onClick={() => navigate("/recipes")} className="bg-cyan-500 m-1 p-1.5 rounded-md">
                   Explore Recipes
                   <span>→</span>
                 </button>
 
-                <button onClick={() => navigate("/favorites")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                <button onClick={() => navigate("/favorites")} className="bg-cyan-500 m-1 p-1.5 rounded-md">
                   My Favorites
                   <span>→</span>
                 </button>
                 
-                <button onClick={() => navigate("/brainstorm")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                <button onClick={() => navigate("/brainstorm")} className="bg-cyan-500 m-1 p-1.5 rounded-md">
                   Brainstorm
                   <span>→</span>
                 </button>
 
-                <button onClick={() => navigate("/cook")} className="bg-cyan-500 mb-1 p-1.5 rounded-md">
+                <button onClick={() => navigate("/cook")} className="bg-cyan-500 m-1 p-1.5 rounded-md">
                   Cook
                   <span>→</span>
                 </button>
