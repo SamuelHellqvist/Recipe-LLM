@@ -22,6 +22,7 @@ import FavoritesPage from "./pages/FavoritesPage";
 import Cook from "./pages/Cook";
 import Brainstorm from "./pages/Brainstorm";
 
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
