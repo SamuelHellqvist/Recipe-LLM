@@ -344,7 +344,7 @@ export default function Brainstorm() {
 
   return (
     <main className="cook-page">
-      <PageHeading eyebrow="A little kitchen inspiration" title="What are you craving?">Start with an ingredient or an idea. We’ll help you find something delicious.</PageHeading>
+      <PageHeading eyebrow="Don't know what to make? Brainstorm!" title="What are you craving?">Start with an ingredient or an idea. We’ll help you find something delicious.</PageHeading>
 
       <form className="cook-picker cook-card" onSubmit={handleSubmit}>
         <label htmlFor="dish-type">What type of dish do you want?</label>

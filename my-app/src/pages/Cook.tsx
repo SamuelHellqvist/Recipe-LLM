@@ -122,7 +122,7 @@ export default function Cook() {
 
   return (
     <main className="cook-page">
-      <PageHeading eyebrow="Cooking mode" title="A little focus. A lovely meal.">Choose a saved recipe and take it one step at a time.</PageHeading>
+      <PageHeading eyebrow="Cooking mode" title="Explore your favorites">Choose a saved recipe and take it one step at a time.</PageHeading>
 
       {favoritesLoading && (
         <div className="cook-loading">
@@ -176,6 +176,19 @@ export default function Cook() {
           )}
 
           <div className="cook-layout">
+            {/* Right: ingredients (available immediately, no need to wait for the AI) */}
+            <div className="ingredients-card">
+              <h2 className="cook-section-title">Ingredients</h2>
+              {selected.ingredients.length > 0 ? (
+                <ul className="ingredients-list">
+                  {selected.ingredients.map((ing, i) => (
+                    <li key={`${ing}-${i}`}>{ing}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No ingredients saved for this recipe.</p>
+              )}
+            </div>
             {/* Left: instructions */}
             <div className="instructions-card">
               <h2 className="cook-section-title">Instructions</h2>
@@ -220,19 +233,7 @@ export default function Cook() {
               )}
             </div>
 
-            {/* Right: ingredients (available immediately, no need to wait for the AI) */}
-            <aside className="ingredients-card">
-              <h2 className="cook-section-title">Ingredients</h2>
-              {selected.ingredients.length > 0 ? (
-                <ul className="ingredients-list">
-                  {selected.ingredients.map((ing, i) => (
-                    <li key={`${ing}-${i}`}>{ing}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No ingredients saved for this recipe.</p>
-              )}
-            </aside>
+            
           </div>
         </section>
       )}

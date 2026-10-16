@@ -160,7 +160,7 @@ export default function Home() {
       <PageHeading eyebrow="Your everyday kitchen" title={userData?.displayName ? `Welcome home, ${userData.displayName.split(' ')[0]}.` : 'Good food starts here.'}>A little inspiration for whatever’s on your table today.</PageHeading>
       <div className="grid gap-4 md:grid-cols-3">
         <section className="relative overflow-hidden rounded-card bg-sage p-7 md:col-span-2 md:p-10">
-          <div className="relative z-10 max-w-sm"><p className="eyebrow">A seat at your table</p><h2 className="my-5 font-display text-4xl font-normal leading-tight md:text-5xl">Less wondering.<br/>More cooking.</h2><p className="mb-7 text-muted">Find a new favorite, make it your own, and enjoy the simple pleasure of a home-cooked meal.</p><Link to="/recipes" className="btn">Explore recipes <Icon name="arrow"/></Link></div>
+          <div className="relative z-10 max-w-sm"><p className="eyebrow">A seat at your table</p><h2 className="my-5 font-display text-4xl font-normal leading-tight md:text-5xl">Less wondering.<br/>More cooking.</h2><p className="mb-7 text-muted">Find a new favorite, make it your own, stop procrastinating and get cooking.</p><Link to="/recipes" className="btn">Explore recipes <Icon name="arrow"/></Link></div>
           <div aria-hidden="true" className="absolute -right-12 -bottom-16 size-64 rounded-full border-[22px] border-surface/60 bg-sage shadow-card"><div className="m-7 grid size-40 place-items-center rounded-full border border-brand/20 text-brand/50"><Icon name="cook" className="size-20"/></div></div>
         </section>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-1">
@@ -179,7 +179,7 @@ export default function Home() {
         </Panel>
         <Panel><Icon name="heart" className="mb-5 size-7 text-brand"/><h2>The keepers</h2><p className="mt-3 mb-6 text-sm text-muted">Good recipes deserve a place to come back to. Keep all your favorites together.</p><Link className="btn-secondary" to="/favorites">Your saved recipes <Icon name="arrow"/></Link></Panel>
       </div>
-      <div className="mt-7 flex justify-end"><button className="min-h-11 text-sm text-muted underline" onClick={handleLogout}>Sign out</button></div>
+      <div className="mt-7 flex justify-end"><button className="btn" onClick={handleLogout}>Sign out</button></div>
     </main>
   );
 }
