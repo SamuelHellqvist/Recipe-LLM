@@ -1,3 +1,4 @@
+import { PageHeading } from "../components/UI";
 //import './Cook.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -121,15 +122,7 @@ export default function Cook() {
 
   return (
     <main className="cook-page">
-      <header className="cook-header">
-        <div>
-          <Link to="/" className="cook-back">
-            ← Home
-          </Link>
-          <h1 className="cook-title">Cook</h1>
-          <p className="cook-subtitle">Pick one of your favorites and we'll walk you through it.</p>
-        </div>
-      </header>
+      <PageHeading eyebrow="Cooking mode" title="A little focus. A lovely meal.">Choose a saved recipe and take it one step at a time.</PageHeading>
 
       {favoritesLoading && (
         <div className="cook-loading">

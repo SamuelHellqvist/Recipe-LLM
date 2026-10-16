@@ -1,3 +1,4 @@
+import { PageHeading } from "../components/UI";
 // to displays recipes to users.
 
 
@@ -13,7 +14,7 @@ import {
 import FavoriteButton from "../components/FavoriteButton";
 import type { Food, Ingredient } from "../types/food";
 import "./RecipesPage.css";
-import { Link } from "react-router-dom";
+
 import {
   classifyRecipe,
   type RecipeClassification,
@@ -312,14 +313,7 @@ function RecipesPage() {
 
   return (
     <main className="recipes-page">
-      <header className="recipes-header">
-        <Link to="/" className="favorites-back">
-          ← Home
-        </Link>
-
-        <h1>Explore Recipes</h1>
-        <p>Find something delicious to cook today!</p>
-      </header>
+      <PageHeading eyebrow="The recipe collection" title="Find your next favorite.">Everyday comfort, new discoveries, and something for every appetite.</PageHeading>
 
       {/* SEARCH */}
       <div className="recipe-search">
@@ -428,6 +422,7 @@ function RecipesPage() {
                 )}
 
                 <button
+                  aria-expanded={selectedId === dish.nummer}
                   type="button"
                   onClick={() => toggleIngredients(dish)}
                 >

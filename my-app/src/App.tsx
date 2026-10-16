@@ -11,7 +11,7 @@ import { onAuthStateChanged, type User } from "firebase/auth";
 import { auth } from "./services/firebase";
 import { ensureUserProfile } from "./services/users";
 
-import "./App.css";
+import AppShell from "./components/AppShell";
 
 import Old from "./pages/Old";
 import Home from "./pages/Home";
@@ -71,12 +71,12 @@ function App() {
 
   // Wait until Firebase checks authentication
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="grid min-h-screen place-items-center text-brand" role="status">Setting your table…</div>;
   }
 
   return (
     <BrowserRouter>
-      <Routes>
+      <AppShell><Routes>
 
         {/* Login */}
         <Route
@@ -164,7 +164,7 @@ function App() {
         />
 
 
-      </Routes>
+      </Routes></AppShell>
     </BrowserRouter>
   );
 }

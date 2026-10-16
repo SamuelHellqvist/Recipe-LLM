@@ -1,161 +1,20 @@
-import { useState, useEffect } from 'react';
-import { type User } from 'firebase/auth';
-import { updateProfile, updatePassword } from 'firebase/auth';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { useState } from 'react';
+import { updateProfile, signOut } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 import { auth } from '../services/firebase';
-import { useNavigate } from 'react-router-dom'
-
+import { PageHeading, Panel, Icon } from '../components/UI';
 export default function Profile() {
-  const [user, setUser] = useState<User | null>(null);
-  const [displayName, setDisplayName] = useState('');
-  const [profilePicture, setProfilePicture] = useState<File | null>(null);
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (auth.currentUser) {
-        console.log("currentUser:", auth.currentUser)
-      setUser(auth.currentUser);
-      setDisplayName(auth.currentUser.displayName || '');
-      setPhoneNumber(auth.currentUser.phoneNumber || '');
-    }
-  }, []);
-
-  const handleSave = async () => {
+  const user = auth.currentUser;
+  const [name, setName] = useState(user?.displayName ?? '');
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [saved, setSaved] = useState(false);
+  async function save() {
     if (!user) return;
-    
-    setLoading(true);
-    setError(null);
-
-    try {
-      // Update display name
-      if (displayName.trim()) {
-        await updateProfile(user, { displayName });
-      }
-
-    //// Upload profile picture
-    //   if (profilePicture) {
-    //     const storageRef = ref(
-    //       auth.storage, 
-    //       `profile-pictures/${user.uid}/${Date.now()}_${profilePicture.name}`
-    //     );
-    //    
-    //     await uploadBytes(storageRef, profilePicture);
-    //     const photoURL = await getDownloadURL(storageRef);
-    //    
-    //     await updateProfile(user, { photoURL });
-    //   }
-
-      // Update phone number (requires admin or specific permissions in Firebase)
-      if (phoneNumber.trim()) {
-        // Note: Phone number updates may require additional Firebase Auth configuration
-        // For now, we'll store it in a custom claim or Firestore document
-        console.log('Phone number updated:', phoneNumber);
-      }
-
-    } catch (err: any) {
-      setError(err.message || 'Failed to update profile');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleCancel = () => {
-    if (user) {
-      setDisplayName(user.displayName || '');
-      setPhoneNumber(user.phoneNumber || '');
-    }
-    
-    navigate("/")
-
-  };
-
-  if (!user) {
-    return <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">Loading...</div>;
+    setBusy(true); setError(''); setSaved(false);
+    try { await updateProfile(user, { displayName: name.trim() }); setSaved(true); }
+    catch { setError('Your changes could not be saved. Please try again.'); }
+    finally { setBusy(false); }
   }
-
-  return (
-    <div className="min-h-screen bg-slate-900 text-white p-8">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center">Profile Settings</h1>
-        
-        <div className="bg-slate-800 rounded-xl p-6 space-y-6">
-          {/* Profile Picture */}
-          <div className="flex flex-col items-center">
-            <div className="w-32 h-32 rounded-full bg-slate-700 flex items-center justify-center overflow-hidden mb-4">
-              {user.photoURL ? (
-                <img 
-                  src={user.photoURL} 
-                  alt="Profile" 
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <span className="text-4xl">👤</span>
-              )}
-            </div>
-            
-            <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-              <span className="text-sm font-medium">Upload Photo</span>
-              <input 
-                type="file" 
-                accept="image/*"
-                onChange={(e) => setProfilePicture(e.target.files?.[0] || null)}
-                className="hidden"
-              />
-            </label>
-          </div>
-
-          {/* Display Name */}
-          <div>
-            <label className="block text-sm font-medium mb-2">Display Name</label>
-            <input
-              type="text"
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          {/* Phone Number */}
-          {/* <div>
-            <label className="block text-sm font-medium mb-2">Phone Number</label>
-            <input
-              type="tel"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              placeholder="+1 (555) 000-0000"
-              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div> */}
-
-          {/* Action Buttons */}
-          <div className="flex gap-4 pt-4">
-            <button
-              onClick={handleSave}
-              disabled={loading}
-              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium transition-colors disabled:opacity-50"
-            >
-              {loading ? 'Saving...' : 'Save Changes'}
-            </button>
-            
-            <button
-              onClick={handleCancel}
-              className="flex-1 bg-slate-600 hover:bg-slate-700 text-white py-3 rounded-lg font-medium transition-colors"
-            >
-              Cancel
-            </button>
-          </div>
-
-          {error && (
-            <div className="bg-red-900/50 border border-red-500 text-red-200 px-4 py-3 rounded-lg">
-              {error}
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+  return <main><PageHeading eyebrow="A kitchen that feels like you" title="Your profile">The little details that make this space yours.</PageHeading><div className="grid items-start gap-5 md:grid-cols-3"><Panel><div className="mb-5 grid size-20 place-items-center overflow-hidden rounded-full bg-sage">{user?.photoURL ? <img src={user.photoURL} alt="Your profile" className="size-full object-cover"/> : <Icon name="user" className="size-9"/>}</div><h2>{user?.displayName || 'Home cook'}</h2><p className="mt-2 break-all text-sm text-muted">{user?.email}</p><button className="btn-secondary mt-6" onClick={() => { void signOut(auth).catch(() => setError('Could not sign out. Please try again.')); }}>Sign out</button></Panel><Panel className="md:col-span-2"><h2 className="mb-6">Personal details</h2><form className="space-y-5" onSubmit={e => {e.preventDefault(); void save();}}><div><label htmlFor="display-name" className="mb-2 block text-sm font-medium">Display name</label><input id="display-name" autoComplete="name" maxLength={80} value={name} onChange={e => {setName(e.target.value); setSaved(false);}} required/></div><p className="text-sm text-muted">This is how we’ll welcome you to your kitchen.</p><div className="flex flex-wrap gap-3"><button className="btn" disabled={busy || !name.trim()}>{busy ? 'Saving…' : 'Save changes'}</button><Link to="/" className="btn-secondary">Cancel</Link></div>{saved && <p role="status" className="text-brand">Your profile is updated.</p>}{error && <p role="alert">{error}</p>}</form></Panel></div></main>;
 }

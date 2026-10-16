@@ -1,5 +1,6 @@
+import { PageHeading } from "../components/UI";
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../services/firebase';
 import FavoriteButton from '../components/FavoriteButton';
@@ -339,21 +340,11 @@ export default function Brainstorm() {
     );
   };
 
-  const navigate = useNavigate()
+
 
   return (
     <main className="cook-page">
-      <header className="cook-header">
-        <div>
-          <button onClick={() => navigate("/")} className="cook-back">
-            ← Home
-          </button>
-          <h1 className="cook-title">Brainstorm</h1>
-          <p className="cook-subtitle">
-            Describe the kind of dish you want and we will find a matching recipe.
-          </p>
-        </div>
-      </header>
+      <PageHeading eyebrow="A little kitchen inspiration" title="What are you craving?">Start with an ingredient or an idea. We’ll help you find something delicious.</PageHeading>
 
       <form className="cook-picker cook-card" onSubmit={handleSubmit}>
         <label htmlFor="dish-type">What type of dish do you want?</label>
@@ -395,6 +386,20 @@ export default function Brainstorm() {
           </button>
         </div>
       </form>
+
+      {!matchedDish && !finding && !generating && (
+        <section className="mb-6 grid gap-4 sm:grid-cols-3" aria-label="Ideas to get you started">
+          {[
+            ['Something cozy', 'A warming vegetable soup', 'For slow evenings and second helpings.'],
+            ['A weeknight favorite', 'A simple chicken and rice dish', 'A little less deciding, a little more enjoying.'],
+            ['Fresh inspiration', 'A vegetarian pasta with vegetables', 'Put something different on the table.'],
+          ].map(([title, idea, description]) => (
+            <button key={title} type="button" className="panel text-left transition-colors hover:bg-sage" onClick={() => { setPrompt(idea); document.getElementById('dish-type')?.focus(); }}>
+              <h2 className="text-base">{title}</h2><p className="mt-2 text-sm text-muted">{description}</p><span className="mt-4 block text-sm font-semibold text-brand">Try this idea →</span>
+            </button>
+          ))}
+        </section>
+      )}
 
       {catalogLoading && (
         <div className="cook-loading">

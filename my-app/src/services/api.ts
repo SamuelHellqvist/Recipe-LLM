@@ -1,5 +1,4 @@
 import { 
-  collection,
   doc, 
   setDoc, 
   getDoc 
@@ -50,7 +49,7 @@ export async function getUserFromFirestore(uid: string) {
 /** TODO
  * Updates the "lastLoginAt" variable for the current user
  */
-export async function updateLastLoginAt(uid: string){
+export async function updateLastLoginAt(_uid: string){
   // 
 }
 

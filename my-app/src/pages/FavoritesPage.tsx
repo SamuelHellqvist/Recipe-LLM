@@ -1,3 +1,4 @@
+import { PageHeading } from "../components/UI";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -73,18 +74,7 @@ function FavoritesPage() {
 
   return (
     <main className="favorites-page">
-      <header className="favorites-header">
-        <Link to="/" className="favorites-back">
-          ← Home
-        </Link>
-
-        <h1>❤️ My Favorite Recipes</h1>
-        <p>All your saved recipes in one place.</p>
-
-        <Link to="/recipes" className="favorites-explore">
-          Explore Recipes
-        </Link>
-      </header>
+      <PageHeading eyebrow="Tried, loved, saved" title="Your recipe collection.">All the dishes you want to come back to, in one little place.</PageHeading>
 
       {error && (
         <p className="favorites-error" role="alert">
@@ -149,9 +139,9 @@ function FavoritesPage() {
                     <p>
                       No instructions saved for this recipe.{" "}
                       <Link to={`/brainstorm?name=${encodeURIComponent(dish.namn)}`}>
-                        <button className="brainstorm-button">
+                        <span className="inline-block py-3 font-semibold text-brand underline">
                           Generate instructions in Brainstorm
-                        </button>
+                        </span>
                       </Link>
                     </p>
                   )}
@@ -160,7 +150,7 @@ function FavoritesPage() {
                 <button
                   type="button"
                   className="favorite-remove-button"
-                  disabled={removingId === dish.nummer}
+                  disabled={removingId !== null}
                   onClick={() => handleRemove(dish)}
                 >
                   {removingId === dish.nummer
