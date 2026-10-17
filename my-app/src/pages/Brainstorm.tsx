@@ -352,7 +352,7 @@ export default function Brainstorm() {
         {!deselectedLoading && !isSignedIn && (
           <p>Sign in to apply your saved excluded ingredients.</p>
         )}
-        {!deselectedLoading && userSubstitutions.length > 0 && (
+        {/* {!deselectedLoading && userSubstitutions.length > 0 && (
           <p>
             Avoiding: {userSubstitutions.join(', ')}
           </p>
@@ -361,7 +361,7 @@ export default function Brainstorm() {
           <p className="cook-error-text" role="alert">
             {deselectedError}
           </p>
-        )}
+        )} */}
         <input
           id="dish-type"
           type="text"
